@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Controller, Control } from "react-hook-form";
+import styled from "styled-components";
 
 import {
   MenuItem,
@@ -13,7 +14,10 @@ import {
   FormGroup,
   Checkbox,
   FormHelperText,
+  SvgIcon,
 } from "@material-ui/core";
+
+import thinkingIcon from "assets/images/thinking_icon.svg";
 
 export type Option = {
   label: string;
@@ -34,6 +38,17 @@ export type FieldProps = {
   getValues: Function;
   error: any;
 };
+
+const ErrorIcon = styled(({ className }) => (
+  <img className={className} src={thinkingIcon} alt="error" />
+))`
+  width: 24px;
+  ${({ label }) =>
+    label &&
+    `position: relative;
+  top: 5px;
+  left: 2px;`}
+`;
 
 const Field: FunctionComponent<FieldProps> = ({
   name,
@@ -56,7 +71,10 @@ const Field: FunctionComponent<FieldProps> = ({
             defaultValue={defaultValue}
             render={(props) => (
               <FormControl error={!!error} component="fieldset">
-                <FormLabel component="legend">{label}</FormLabel>
+                <FormLabel component="legend">
+                  {label}
+                  {!!error && <ErrorIcon label />}
+                </FormLabel>
                 <RadioGroup {...props}>
                   {options.map((option: Option) => (
                     <FormControlLabel
@@ -82,7 +100,10 @@ const Field: FunctionComponent<FieldProps> = ({
             defaultValue={defaultValue}
             render={(props) => (
               <FormControl error={!!error} component="fieldset" fullWidth>
-                <FormLabel component="legend">{label}</FormLabel>
+                <FormLabel component="legend">
+                  {label}
+                  {!!error && <ErrorIcon label />}
+                </FormLabel>
                 <RadioGroup {...props}>
                   <Grid container>
                     {options.map((option: Option) => (
@@ -131,7 +152,10 @@ const Field: FunctionComponent<FieldProps> = ({
             type="checkbox"
             render={({ onChange, onBlur, value }) => (
               <FormControl error={!!error} component="fieldset">
-                <FormLabel component="legend">{label}</FormLabel>
+                <FormLabel component="legend">
+                  {label}
+                  {!!error && <ErrorIcon label />}
+                </FormLabel>
                 <FormGroup>
                   {options.map((option: Option) => (
                     <FormControlLabel
@@ -171,6 +195,9 @@ const Field: FunctionComponent<FieldProps> = ({
                 label={label}
                 disabled={disabled}
                 fullWidth
+                InputProps={{
+                  endAdornment: !!error ? <ErrorIcon /> : null,
+                }}
               >
                 {isSelect &&
                   options.map((option: Option) => (

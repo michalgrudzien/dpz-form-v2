@@ -1,9 +1,11 @@
 import { createMuiTheme } from "@material-ui/core/styles";
+
 import colors from "config/colors";
+import BebasNeueBoldWoff from "fonts/BebasNeueBold.woff";
 
 const headingStyle = {
   color: colors.graphite,
-  fontFamily: "Bebas Neue, sans-serif",
+  fontFamily: "Bebas Neue Bold, sans-serif",
   marginBottom: "1rem",
 };
 
@@ -13,6 +15,16 @@ const bodyStyle = {
   lineHeight: 1.75,
 };
 
+const BebasNeueBold = {
+  fontFamily: "Bebas Neue Bold",
+  fontStyle: "bold",
+  fontWeight: 600,
+  src: `
+    local('Bebas Neue Bold'),
+    url(${BebasNeueBoldWoff}) format(woff)
+  `,
+};
+
 const theme = createMuiTheme({
   typography: {
     h2: headingStyle,
@@ -20,6 +32,7 @@ const theme = createMuiTheme({
     h4: headingStyle,
     h5: headingStyle,
     body1: bodyStyle,
+    fontSize: 12.5,
   },
   palette: {
     primary: { main: colors.primary, contrastText: colors.white },
@@ -32,6 +45,11 @@ const theme = createMuiTheme({
   },
   spacing: 8,
   overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        "@font-face": [BebasNeueBold],
+      },
+    },
     MuiButton: {
       root: {
         fontWeight: 600,
@@ -53,7 +71,7 @@ const theme = createMuiTheme({
       root: {
         fontFamily: "Bebas Neue, sans-serif",
         marginBottom: "0.2em",
-        fontSize: "1.2em",
+        fontSize: "1.3em",
       },
     },
     MuiTextField: {

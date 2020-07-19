@@ -7,7 +7,7 @@ import Form from "components/Form";
 import theme from "config/muiTheme";
 
 import logoImg from "assets/images/wt_logo.svg";
-import { Container } from "@material-ui/core";
+import { Container, CssBaseline } from "@material-ui/core";
 import GradientBackground from "components/GradientBackground";
 
 const Wrapper = styled.div`
@@ -24,6 +24,7 @@ const Logo = styled.img`
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Wrapper>
         <GradientBackground />
         <Container>

@@ -8,7 +8,9 @@ import { Grid, Card, CardContent, Button, Typography } from "@material-ui/core";
 
 import colors from "config/colors";
 import validationSchema from "config/validationSchema";
+import fieldsConfig from "config/fieldsConfig.json";
 import FormSection from "./FormSection";
+import FormProgress from "./FormProgress";
 
 const MainTextWrapper = styled.div`
   color: ${colors.white};
@@ -20,8 +22,18 @@ const DetailsWrapper = styled.div`
   padding-top: 2em;
 `;
 
+const fieldsCount = fieldsConfig.reduce((acc, section) => {
+  return acc + section.fieldsConfig.length;
+}, 0);
+
 const Form = () => {
-  const { control, handleSubmit, getValues, errors } = useForm({
+  const {
+    control,
+    handleSubmit,
+    getValues,
+    errors,
+    formState: { touched },
+  } = useForm({
     resolver: yupResolver(validationSchema),
     mode: "onBlur",
   });
@@ -30,18 +42,19 @@ const Form = () => {
     control,
     getValues,
     errors,
+    touched,
   };
+
+  const validFieldsCount = Object.keys(touched).filter(
+    (fieldName) => !errors.hasOwnProperty(fieldName)
+  ).length;
 
   return (
     <>
+      <FormProgress fieldsCount={fieldsCount} validFields={validFieldsCount} />
       <CardContent>
         <MainTextWrapper>
-          <Typography
-            color="inherit"
-            variant="h2"
-            component="h1"
-            onClick={() => console.log(getValues())}
-          >
+          <Typography color="inherit" variant="h2" component="h1">
             No siema!
           </Typography>
           <Typography color="inherit" variant="body1">
@@ -77,164 +90,14 @@ const Form = () => {
       </CardContent>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Card>
-          <FormSection
-            title="Dane osobowe"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            formProps={formProps}
-            fieldsConfig={[
-              {
-                type: "text",
-                name: "name",
-                label: "Imię",
-              },
-              {
-                type: "text",
-                name: "surname",
-                label: "Nazwisko",
-              },
-              {
-                type: "email",
-                name: "email",
-                label: "Adres e-mail",
-                fullWidth: true,
-              },
-              {
-                type: "select",
-                name: "student",
-                label: "Czy masz legitymację studencką?",
-                fullWidth: true,
-                options: [
-                  {
-                    label: "Tak.",
-                    value: 1,
-                  },
-                  {
-                    label: "No niestety.",
-                    value: 0,
-                  },
-                ],
-              },
-              {
-                type: "checkbox",
-                name: "beer",
-                label: "Ulubione piwo",
-                fullWidth: true,
-                defaultValue: false,
-                options: [
-                  {
-                    label: "Czarny Specjal Mazowieckie",
-                    value: true,
-                  },
-                ],
-              },
-            ]}
-          />
-          <FormSection
-            title="Doświadczenie zeglarskie"
-            description="Lubimy dzielić załogi tak, żeby w każdej znalazł się ktoś, kto odróżnia foka od foki. W idealnym świecie jest to sternik, ale każdemu sternikowi miło, kiedy ma kogoś do pomocy. Więc nie krępuj się, tu możesz się pochwalić swoimi nieprzeciętnymi umiejętnościami!"
-            last={true}
-            formProps={formProps}
-            fieldsConfig={[
-              {
-                type: "radio",
-                name: "sailingExperience",
-                label: "Doświadczenie",
-                fullWidth: true,
-                options: [
-                  {
-                    label: "Co?",
-                    value: "1",
-                  },
-                  {
-                    label:
-                      "Zdarzyło mi się być na jachcie, ale niczego nie obiecuję.",
-                    value: "2",
-                  },
-                  {
-                    label: "Wiem gdzie ta keja i co to ten jacht.",
-                    value: "3",
-                  },
-                  {
-                    label: "Pływam. Po prostu.",
-                    value: "4",
-                  },
-                  {
-                    label:
-                      'Prułem baksztagiem jeszcze na pokładzie "I\'m alone".',
-                    value: "5",
-                  },
-                ],
-              },
-              {
-                type: "imageRadio",
-                name: "sailingLicence",
-                label: "Uprawnienia",
-                fullWidth: true,
-                options: [
-                  {
-                    label: "Brak.",
-                    value: "NONE",
-                    image: require("assets/images/licence_NONE.svg"),
-                    imageChecked: require("assets/images/licence_NONE_c.svg"),
-                  },
-                  {
-                    label: "Zeglarz Jachtowy",
-                    value: "ŻJ",
-                    image: require("assets/images/licence_ZJ.svg"),
-                    imageChecked: require("assets/images/licence_ZJ_c.svg"),
-                  },
-                  {
-                    label: "Jachtowy Sternik Morski",
-                    value: "JSM",
-                    image: require("assets/images/licence_JSM.svg"),
-                    imageChecked: require("assets/images/licence_JSM_c.svg"),
-                  },
-                  {
-                    label: "Kapitan Jachtowy",
-                    value: "KJ",
-                    image: require("assets/images/licence_KJ.svg"),
-                    imageChecked: require("assets/images/licence_KJ_c.svg"),
-                  },
-                  // {
-                  //   label: "Zeglarz jachtowy",
-                  //   value: "ZJ",
-                  // },
-                  // {
-                  //   label: "Jachtowy Sternik Morski",
-                  //   value: "JSM",
-                  // },
-                  // {
-                  //   label: "Kapitan Jachtowy",
-                  //   value: "KJ",
-                  // },
-                ],
-              },
-            ]}
-          />
-          {/* <FormSection
-            title="Dane osobowe"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            formProps={formProps}
-            fieldsConfig={[
-              {
-                type: "text",
-                name: "lastName",
-                label: "Nazwisko",
-              },
-            ]}
-          />
-          <FormSection
-            title="Dane osobowe"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            formProps={formProps}
-            fieldsConfig={[
-              {
-                type: "email",
-                name: "email",
-                label: "Adres e-mail",
-              },
-            ]}
-          /> */}
+          {fieldsConfig.map((section) => (
+            <FormSection
+              title={section.title}
+              description={section.description}
+              fieldsConfig={section.fieldsConfig}
+              formProps={formProps}
+            />
+          ))}
           <Button size="large" variant="contained" color="primary" fullWidth>
             Płyniemy!
           </Button>

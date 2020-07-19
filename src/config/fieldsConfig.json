@@ -1,0 +1,120 @@
+[
+  {
+    "title": "Dane osobowe",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "fieldsConfig": [
+      {
+        "type": "text",
+        "name": "name",
+        "label": "Imię"
+      },
+      {
+        "type": "text",
+        "name": "surname",
+        "label": "Nazwisko"
+      },
+      {
+        "type": "email",
+        "name": "email",
+        "label": "Adres e-mail",
+        "fullWidth": true
+      },
+      {
+        "type": "select",
+        "name": "student",
+        "label": "Czy masz legitymację studencką?",
+        "fullWidth": true,
+        "defaultValue": null,
+        "options": [
+          {
+            "label": "Tak.",
+            "value": true
+          },
+          {
+            "label": "No niestety.",
+            "value": false
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "name": "beer",
+        "label": "Ulubione piwo",
+        "fullWidth": true,
+        "defaultValue": false,
+        "options": [
+          {
+            "label": "Czarny Specjal Mazowieckie",
+            "value": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Doświadczenie żeglarskie",
+    "description": "Lubimy dzielić załogi tak, żeby w każdej znalazł się ktoś, kto odróżnia foka od foki. W idealnym świecie jest to sternik, ale każdemu sternikowi miło, kiedy ma kogoś do pomocy. Więc nie krępuj się, tu możesz się pochwalić swoimi nieprzeciętnymi umiejętnościami!",
+    "fieldsConfig": [
+      {
+        "type": "radio",
+        "name": "sailingExperience",
+        "label": "Doświadczenie",
+        "fullWidth": true,
+        "options": [
+          {
+            "label": "Co?",
+            "value": "1"
+          },
+          {
+            "label": "Zdarzyło mi się być na jachcie, ale niczego nie obiecuję.",
+            "value": "2"
+          },
+          {
+            "label": "Wiem gdzie ta keja i co to ten jacht.",
+            "value": "3"
+          },
+          {
+            "label": "Pływam. Po prostu.",
+            "value": "4"
+          },
+          {
+            "label": "Prułem baksztagiem jeszcze na pokładzie \"I'm alone\".",
+            "value": "5"
+          }
+        ]
+      },
+      {
+        "type": "imageRadio",
+        "name": "sailingLicence",
+        "label": "Uprawnienia",
+        "fullWidth": true,
+        "options": [
+          {
+            "label": "Brak.",
+            "value": "NONE",
+            "image": "https://static.depezet.com/images/licence_NONE.svg",
+            "imageChecked": "https://static.depezet.com/images/licence_NONE_c.svg"
+          },
+          {
+            "label": "Zeglarz Jachtowy",
+            "value": "ŻJ",
+            "image": "https://static.depezet.com/images/licence_ZJ.svg",
+            "imageChecked": "https://static.depezet.com/images/licence_ZJ_c.svg"
+          },
+          {
+            "label": "Jachtowy Sternik Morski",
+            "value": "JSM",
+            "image": "https://static.depezet.com/images/licence_JSM.svg",
+            "imageChecked": "https://static.depezet.com/images/licence_JSM_c.svg"
+          },
+          {
+            "label": "Kapitan Jachtowy",
+            "value": "KJ",
+            "image": "https://static.depezet.com/images/licence_KJ.svg",
+            "imageChecked": "https://static.depezet.com/images/licence_KJ_c.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

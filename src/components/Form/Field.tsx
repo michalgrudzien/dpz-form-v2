@@ -14,10 +14,12 @@ import {
   FormGroup,
   Checkbox,
   FormHelperText,
-  SvgIcon,
+  Grow,
 } from "@material-ui/core";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 
 import thinkingIcon from "assets/images/thinking_icon.svg";
+import colors from "config/colors";
 
 export type Option = {
   label: string;
@@ -37,6 +39,7 @@ export type FieldProps = {
   control: Control;
   getValues: Function;
   error: any;
+  touched: Boolean;
 };
 
 const ErrorIcon = styled(({ className }) => (
@@ -60,7 +63,10 @@ const Field: FunctionComponent<FieldProps> = ({
   options = [],
   control,
   error,
+  touched,
 }) => {
+  const valid = touched && !error;
+
   switch (type) {
     case "radio":
       return (
@@ -75,7 +81,13 @@ const Field: FunctionComponent<FieldProps> = ({
                   {label}
                   {!!error && <ErrorIcon label />}
                 </FormLabel>
-                <RadioGroup {...props}>
+                <RadioGroup
+                  {...props}
+                  onChange={(event) => {
+                    props.onChange(event);
+                    event.currentTarget.blur();
+                  }}
+                >
                   {options.map((option: Option) => (
                     <FormControlLabel
                       value={option.value}
@@ -104,7 +116,13 @@ const Field: FunctionComponent<FieldProps> = ({
                   {label}
                   {!!error && <ErrorIcon label />}
                 </FormLabel>
-                <RadioGroup {...props}>
+                <RadioGroup
+                  {...props}
+                  onChange={(event) => {
+                    props.onChange(event);
+                    event.currentTarget.blur();
+                  }}
+                >
                   <Grid container>
                     {options.map((option: Option) => (
                       <Grid item xs={12} sm={6} md={3}>
@@ -162,7 +180,10 @@ const Field: FunctionComponent<FieldProps> = ({
                       control={
                         <Checkbox
                           onBlur={onBlur}
-                          onChange={(e) => onChange(e.target.checked)}
+                          onChange={(event) => {
+                            onChange(event.target.checked);
+                            event.currentTarget.blur();
+                          }}
                           checked={value}
                           color="default"
                         />
@@ -188,6 +209,10 @@ const Field: FunctionComponent<FieldProps> = ({
             render={(props) => (
               <MuiTextField
                 {...props}
+                onChange={(event) => {
+                  props.onChange(event);
+                  isSelect && event.currentTarget.blur();
+                }}
                 type={type}
                 helperText={error?.message}
                 error={!!error}
@@ -196,7 +221,20 @@ const Field: FunctionComponent<FieldProps> = ({
                 disabled={disabled}
                 fullWidth
                 InputProps={{
-                  endAdornment: !!error ? <ErrorIcon /> : null,
+                  endAdornment: (
+                    <>
+                      {valid && (
+                        <Grow in={valid}>
+                          <CheckCircleIcon htmlColor={colors.green} />
+                        </Grow>
+                      )}
+                      {!!error && (
+                        <Grow in={!!error}>
+                          <ErrorIcon />
+                        </Grow>
+                      )}
+                    </>
+                  ),
                 }}
               >
                 {isSelect &&

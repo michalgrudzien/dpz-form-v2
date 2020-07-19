@@ -22,10 +22,6 @@ const Wrapper = styled.div`
   padding-top: 0.5em;
 `;
 
-const TextWrapper = styled.div`
-  padding-bottom: 2em;
-`;
-
 const FormSection: FunctionComponent<FormSectionProps> = ({
   title,
   description,
@@ -38,10 +34,8 @@ const FormSection: FunctionComponent<FormSectionProps> = ({
       <CardContent>
         <Grid container spacing={8}>
           <Grid item xs={12} md={5}>
-            <TextWrapper>
-              <Typography variant="h3">{title}</Typography>
-              <Typography variant="body1">{description}</Typography>
-            </TextWrapper>
+            <Typography variant="h3">{title}</Typography>
+            <Typography variant="body1">{description}</Typography>
           </Grid>
           <Grid item xs={12} md={7}>
             <Grid container spacing={3}>

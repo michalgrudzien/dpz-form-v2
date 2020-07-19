@@ -84,6 +84,20 @@ const theme = createMuiTheme({
         marginBottom: "0.5em",
       },
     },
+    MuiRadio: {
+      root: {
+        "&$checked": {
+          color: colors.primary,
+        },
+      },
+    },
+    MuiCheckbox: {
+      root: {
+        "&$checked": {
+          color: colors.primary,
+        },
+      },
+    },
   },
 });
 

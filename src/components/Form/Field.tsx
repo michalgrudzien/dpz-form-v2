@@ -49,7 +49,7 @@ const Field: FunctionComponent<FieldProps> = ({
   switch (type) {
     case "radio":
       return (
-        <Grid item xs={12} md={fullWidth ? 12 : 6}>
+        <Grid item xs={12} sm={fullWidth ? 12 : 6}>
           <Controller
             name={name}
             control={control}
@@ -63,7 +63,7 @@ const Field: FunctionComponent<FieldProps> = ({
                       value={option.value}
                       label={option.label}
                       disabled={disabled}
-                      control={<Radio />}
+                      control={<Radio color="default" />}
                     />
                   ))}
                 </RadioGroup>
@@ -75,7 +75,7 @@ const Field: FunctionComponent<FieldProps> = ({
       );
     case "imageRadio":
       return (
-        <Grid item xs={12} md={fullWidth ? 12 : 6}>
+        <Grid item xs={12} sm={fullWidth ? 12 : 6}>
           <Controller
             name={name}
             control={control}
@@ -123,7 +123,7 @@ const Field: FunctionComponent<FieldProps> = ({
       );
     case "checkbox":
       return (
-        <Grid item xs={12} md={fullWidth ? 12 : 6}>
+        <Grid item xs={12} sm={fullWidth ? 12 : 6}>
           <Controller
             name={name}
             control={control}
@@ -140,6 +140,7 @@ const Field: FunctionComponent<FieldProps> = ({
                           onBlur={onBlur}
                           onChange={(e) => onChange(e.target.checked)}
                           checked={value}
+                          color="default"
                         />
                       }
                       label={option.label}
@@ -155,7 +156,7 @@ const Field: FunctionComponent<FieldProps> = ({
     default:
       const isSelect: boolean = type === "select";
       return (
-        <Grid item xs={12} md={fullWidth ? 12 : 6}>
+        <Grid item xs={12} sm={fullWidth ? 12 : 6}>
           <Controller
             name={name}
             control={control}

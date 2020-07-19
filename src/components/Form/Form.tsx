@@ -142,20 +142,26 @@ const Form = () => {
                 fullWidth: true,
                 options: [
                   {
-                    label: "Brak.",
+                    label: "Co?",
                     value: "1",
                   },
                   {
-                    label: "Zeglarz jachtowy",
+                    label:
+                      "Zdarzyło mi się być na jachcie, ale niczego nie obiecuję.",
                     value: "2",
                   },
                   {
-                    label: "Jachtowy Sternik Morski",
+                    label: "Wiem gdzie ta keja i co to ten jacht.",
                     value: "3",
                   },
                   {
-                    label: "Kapitan Jachtowy",
+                    label: "Pływam. Po prostu.",
                     value: "4",
+                  },
+                  {
+                    label:
+                      'Prułem baksztagiem jeszcze na pokładzie "I\'m alone".',
+                    value: "5",
                   },
                 ],
               },
@@ -173,7 +179,7 @@ const Form = () => {
                   },
                   {
                     label: "Zeglarz Jachtowy",
-                    value: "ZJ",
+                    value: "ŻJ",
                     image: require("assets/images/licence_ZJ.svg"),
                     imageChecked: require("assets/images/licence_ZJ_c.svg"),
                   },

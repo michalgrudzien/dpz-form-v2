@@ -12,6 +12,7 @@ import {
   Radio,
   FormGroup,
   Checkbox,
+  FormHelperText,
 } from "@material-ui/core";
 
 export type Option = {
@@ -31,6 +32,7 @@ export type FieldProps = {
   options?: Option[] | [];
   control: Control;
   getValues: Function;
+  error: any;
 };
 
 const Field: FunctionComponent<FieldProps> = ({
@@ -42,7 +44,7 @@ const Field: FunctionComponent<FieldProps> = ({
   defaultValue = "",
   options = [],
   control,
-  getValues,
+  error,
 }) => {
   switch (type) {
     case "radio":
@@ -53,7 +55,7 @@ const Field: FunctionComponent<FieldProps> = ({
             control={control}
             defaultValue={defaultValue}
             render={(props) => (
-              <FormControl component="fieldset">
+              <FormControl error={!!error} component="fieldset">
                 <FormLabel component="legend">{label}</FormLabel>
                 <RadioGroup {...props}>
                   {options.map((option: Option) => (
@@ -65,6 +67,7 @@ const Field: FunctionComponent<FieldProps> = ({
                     />
                   ))}
                 </RadioGroup>
+                <FormHelperText>{error?.message}</FormHelperText>
               </FormControl>
             )}
           />
@@ -78,7 +81,7 @@ const Field: FunctionComponent<FieldProps> = ({
             control={control}
             defaultValue={defaultValue}
             render={(props) => (
-              <FormControl component="fieldset" fullWidth>
+              <FormControl error={!!error} component="fieldset" fullWidth>
                 <FormLabel component="legend">{label}</FormLabel>
                 <RadioGroup {...props}>
                   <Grid container>
@@ -112,6 +115,7 @@ const Field: FunctionComponent<FieldProps> = ({
                     ))}
                   </Grid>
                 </RadioGroup>
+                <FormHelperText>{error?.message}</FormHelperText>
               </FormControl>
             )}
           />
@@ -126,7 +130,7 @@ const Field: FunctionComponent<FieldProps> = ({
             defaultValue={defaultValue}
             type="checkbox"
             render={({ onChange, onBlur, value }) => (
-              <FormControl component="fieldset">
+              <FormControl error={!!error} component="fieldset">
                 <FormLabel component="legend">{label}</FormLabel>
                 <FormGroup>
                   {options.map((option: Option) => (
@@ -142,6 +146,7 @@ const Field: FunctionComponent<FieldProps> = ({
                     />
                   ))}
                 </FormGroup>
+                <FormHelperText>{error?.message}</FormHelperText>
               </FormControl>
             )}
           />
@@ -159,7 +164,8 @@ const Field: FunctionComponent<FieldProps> = ({
               <MuiTextField
                 {...props}
                 type={type}
-                // variant="outlined"
+                helperText={error?.message}
+                error={!!error}
                 select={isSelect}
                 label={label}
                 disabled={disabled}

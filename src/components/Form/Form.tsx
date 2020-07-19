@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers";
 
 import { Grid, Card, CardContent, Button, Typography } from "@material-ui/core";
 
 import colors from "config/colors";
+import validationSchema from "config/validationSchema";
 import FormSection from "./FormSection";
 
 const MainTextWrapper = styled.div`
@@ -19,11 +21,15 @@ const DetailsWrapper = styled.div`
 `;
 
 const Form = () => {
-  const { control, handleSubmit, getValues } = useForm();
+  const { control, handleSubmit, getValues, errors } = useForm({
+    resolver: yupResolver(validationSchema),
+    mode: "onBlur",
+  });
   const onSubmit = (data: object): void => console.log(data);
   const formProps = {
     control,
     getValues,
+    errors,
   };
 
   return (
@@ -78,12 +84,12 @@ const Form = () => {
             fieldsConfig={[
               {
                 type: "text",
-                name: "firstName",
+                name: "name",
                 label: "Imię",
               },
               {
                 type: "text",
-                name: "lastName",
+                name: "surname",
                 label: "Nazwisko",
               },
               {
@@ -94,7 +100,7 @@ const Form = () => {
               },
               {
                 type: "select",
-                name: "isStudent",
+                name: "student",
                 label: "Czy masz legitymację studencką?",
                 fullWidth: true,
                 options: [
@@ -137,19 +143,19 @@ const Form = () => {
                 options: [
                   {
                     label: "Brak.",
-                    value: "NONE",
+                    value: "1",
                   },
                   {
                     label: "Zeglarz jachtowy",
-                    value: "ZJ",
+                    value: "2",
                   },
                   {
                     label: "Jachtowy Sternik Morski",
-                    value: "JSM",
+                    value: "3",
                   },
                   {
                     label: "Kapitan Jachtowy",
-                    value: "KJ",
+                    value: "4",
                   },
                 ],
               },

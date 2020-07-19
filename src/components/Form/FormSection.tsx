@@ -13,6 +13,7 @@ type FormSectionProps = {
   formProps: {
     control: Control;
     getValues: Function;
+    errors: any;
   }; //TODO: extend
   fieldsConfig: any[];
 };
@@ -29,7 +30,7 @@ const FormSection: FunctionComponent<FormSectionProps> = ({
   title,
   description,
   last = false,
-  formProps: { control, getValues },
+  formProps: { control, getValues, errors },
   fieldsConfig,
 }) => {
   return (
@@ -49,6 +50,7 @@ const FormSection: FunctionComponent<FormSectionProps> = ({
                   key={field.name}
                   control={control}
                   getValues={getValues}
+                  error={errors[field.name]}
                   {...field}
                 />
               ))}

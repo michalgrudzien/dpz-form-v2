@@ -18,6 +18,7 @@ import validationSchema from "config/validationSchema";
 import fieldsConfig from "config/fieldsConfig.json";
 import FormSection from "./FormSection";
 import FormProgress from "./FormProgress";
+import SubmissionDialog from "./SubmissionDialog";
 
 const MainTextWrapper = styled.div`
   color: ${colors.white};
@@ -148,6 +149,7 @@ const Form = () => {
           ))}
           <StyledWave
             fill={isFormValid ? colors.secondary : colors.lightGrey}
+            paused={!isFormValid}
             options={{
               height: 10,
               amplitude: 20,
@@ -167,6 +169,7 @@ const Form = () => {
                 : "Chyba jeszcze coś zostało do wypełnienia..."}
             </Button>
           </StyledBox>
+          <SubmissionDialog />
         </Card>
       </form>
     </>

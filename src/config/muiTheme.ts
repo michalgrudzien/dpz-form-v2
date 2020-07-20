@@ -97,6 +97,11 @@ const theme = createMuiTheme({
         },
       },
     },
+    MuiDialogContent: {
+      root: {
+        padding: "20px",
+      },
+    },
   },
 });
 

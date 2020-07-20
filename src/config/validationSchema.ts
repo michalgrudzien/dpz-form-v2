@@ -29,30 +29,34 @@ export default Yup.object().shape({
     "Jak tego nie podasz, to jak mamy wziąć na Ciebie kredyt w Providencie?"
   ),
   nationality: Yup.string().required("A Ty co? Apartyda?"),
-  isTravelling: Yup.mixed().notOneOf(
-    [null],
-    "Sprawa jest prosta - albo jedziesz z nami albo na własną rękę."
-  ),
-  transportationReturn: Yup.string().when("isTravelling", {
-    is: true,
-    then: Yup.string().required(
-      "KAŻDY uczestnik ma wrócić do domu. No nie zżymaj się i odhacz."
+  isTravelling: Yup.mixed()
+    .nullable()
+    .notOneOf(
+      [null],
+      "Sprawa jest prosta - albo jedziesz z nami albo na własną rękę."
     ),
-  }),
-  transportationOutbound: Yup.string().when("isTravelling", {
-    is: true,
-    then: Yup.string().required(
-      "A Ty co? Pojawiasz się znikąd? Weź coś zaznacz."
-    ),
-  }),
-  hasBLicence: Yup.mixed().notOneOf(
-    [null],
-    "Można nie mieć, ale nie można tego nie powiedzieć!"
-  ),
-  hasSRC: Yup.mixed().notOneOf(
-    [null],
-    "Jak nie wiesz, co to jest, to kliknij, że nie."
-  ),
+  transportationReturn: Yup.string()
+    .nullable()
+    .when("isTravelling", {
+      is: true,
+      then: Yup.string().required(
+        "KAŻDY uczestnik ma wrócić do domu. No nie zżymaj się i odhacz."
+      ),
+    }),
+  transportationOutbound: Yup.string()
+    .nullable()
+    .when("isTravelling", {
+      is: true,
+      then: Yup.string().required(
+        "A Ty co? Pojawiasz się znikąd? Weź coś zaznacz."
+      ),
+    }),
+  hasBLicence: Yup.mixed()
+    .nullable()
+    .notOneOf([null], "Można nie mieć, ale nie można tego nie powiedzieć!"),
+  hasSRC: Yup.mixed()
+    .nullable()
+    .notOneOf([null], "Jak nie wiesz, co to jest, to kliknij, że nie."),
   sailingLicence: Yup.mixed().oneOf(
     ["NONE", "ŻJ", "JSM", "KJ"],
     "Można nie mieć, ale to też zaznacz!"

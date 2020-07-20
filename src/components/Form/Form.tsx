@@ -32,6 +32,7 @@ const Form = () => {
     handleSubmit,
     getValues,
     errors,
+    watch,
     formState: { touched },
   } = useForm({
     resolver: yupResolver(validationSchema),
@@ -43,15 +44,23 @@ const Form = () => {
     getValues,
     errors,
     touched,
+    watch,
   };
 
-  const validFieldsCount = Object.keys(touched).filter(
+  //TODO: handle this better :(
+  const computedFieldsCount: number =
+    watch("isTravelling") !== false ? fieldsCount : fieldsCount - 2;
+
+  const validFieldsCount: number = Object.keys(touched).filter(
     (fieldName) => !errors.hasOwnProperty(fieldName)
   ).length;
 
   return (
     <>
-      <FormProgress fieldsCount={fieldsCount} validFields={validFieldsCount} />
+      <FormProgress
+        fieldsCount={computedFieldsCount}
+        validFields={validFieldsCount}
+      />
       <CardContent>
         <MainTextWrapper>
           <Typography color="inherit" variant="h2" component="h1">
@@ -90,12 +99,13 @@ const Form = () => {
       </CardContent>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Card>
-          {fieldsConfig.map((section) => (
+          {fieldsConfig.map((section, index) => (
             <FormSection
               title={section.title}
               description={section.description}
               fieldsConfig={section.fieldsConfig}
               formProps={formProps}
+              last={index === fieldsConfig.length - 1}
             />
           ))}
           <Button size="large" variant="contained" color="primary" fullWidth>

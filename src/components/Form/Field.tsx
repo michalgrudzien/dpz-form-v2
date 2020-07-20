@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Controller, Control } from "react-hook-form";
+import { Controller, Control, useWatch } from "react-hook-form";
 import styled from "styled-components";
 
 import {
@@ -32,6 +32,9 @@ export type FieldProps = {
   name: string;
   type: string;
   label: string;
+  placeholder?: string;
+  conditionalKey?: string;
+  conditionalValue?: string | boolean;
   disabled?: boolean;
   fullWidth?: boolean;
   defaultValue: string;
@@ -57,6 +60,9 @@ const Field: FunctionComponent<FieldProps> = ({
   name,
   type,
   label,
+  placeholder,
+  conditionalKey,
+  conditionalValue,
   disabled = false,
   fullWidth = false,
   defaultValue = "",
@@ -67,6 +73,15 @@ const Field: FunctionComponent<FieldProps> = ({
 }) => {
   const valid = touched && !error;
 
+  const conditionalValueCurrent = useWatch({
+    name: conditionalKey || name,
+    control,
+  });
+
+  if (conditionalKey && typeof conditionalValue !== "undefined") {
+    if (conditionalValue !== conditionalValueCurrent) return null;
+  }
+
   switch (type) {
     case "radio":
       return (
@@ -76,7 +91,11 @@ const Field: FunctionComponent<FieldProps> = ({
             control={control}
             defaultValue={defaultValue}
             render={(props) => (
-              <FormControl error={!!error} component="fieldset">
+              <FormControl
+                error={!!error}
+                component="fieldset"
+                disabled={disabled}
+              >
                 <FormLabel component="legend">
                   {label}
                   {!!error && <ErrorIcon label />}
@@ -169,7 +188,11 @@ const Field: FunctionComponent<FieldProps> = ({
             defaultValue={defaultValue}
             type="checkbox"
             render={({ onChange, onBlur, value }) => (
-              <FormControl error={!!error} component="fieldset">
+              <FormControl
+                error={!!error}
+                component="fieldset"
+                disabled={disabled}
+              >
                 <FormLabel component="legend">
                   {label}
                   {!!error && <ErrorIcon label />}
@@ -209,16 +232,13 @@ const Field: FunctionComponent<FieldProps> = ({
             render={(props) => (
               <MuiTextField
                 {...props}
-                onChange={(event) => {
-                  props.onChange(event);
-                  isSelect && event.currentTarget.blur();
-                }}
                 type={type}
                 helperText={error?.message}
                 error={!!error}
                 select={isSelect}
                 label={label}
                 disabled={disabled}
+                placeholder={placeholder}
                 fullWidth
                 InputProps={{
                   endAdornment: (

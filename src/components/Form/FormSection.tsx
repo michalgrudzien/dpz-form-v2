@@ -23,6 +23,7 @@ type FormSectionProps = {
     getValues: Function;
     errors: any;
     touched: any;
+    watch: any;
   };
   fieldsConfig: any[];
 };
@@ -39,13 +40,17 @@ const FormSection: FunctionComponent<FormSectionProps> = ({
   title,
   description,
   last = false,
-  formProps: { control, getValues, errors, touched },
+  formProps: { control, getValues, errors, touched, watch },
   fieldsConfig,
 }) => {
   const fieldsNames: string[] = fieldsConfig.map((field) => field.name);
   const isSectionValid: boolean = fieldsNames.every(
     (fieldName) => touched[fieldName] && !errors.hasOwnProperty(fieldName)
   );
+
+  //TODO: handle this better :(
+  const isValidTransport: boolean =
+    fieldsNames[0] === "isTravelling" && watch("isTravelling") === false;
 
   return (
     <Wrapper>
@@ -54,7 +59,7 @@ const FormSection: FunctionComponent<FormSectionProps> = ({
           <Grid item xs={12} md={5}>
             <Typography variant="h3">
               {title}
-              <Grow in={isSectionValid}>
+              <Grow in={isSectionValid || isValidTransport}>
                 <StyledCheckCircleIcon
                   fontSize="large"
                   htmlColor={colors.green}

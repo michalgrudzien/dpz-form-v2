@@ -6,17 +6,20 @@
       {
         "type": "text",
         "name": "name",
-        "label": "Imię"
+        "label": "Imię",
+        "placeholder": "np. Bouwee"
       },
       {
         "type": "text",
         "name": "surname",
-        "label": "Nazwisko"
+        "label": "Nazwisko",
+        "placeholder": "np. Bekking"
       },
       {
         "type": "email",
         "name": "email",
         "label": "Adres e-mail",
+        "placeholder": "np. tysia@buziaczek.pl",
         "fullWidth": true
       },
       {
@@ -46,6 +49,75 @@
           {
             "label": "Czarny Specjal Mazowieckie",
             "value": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Transport",
+    "description": "Jesteśmy ambitni i czasem szaleni, ale starsi i ambitniejsi od nas powiedzieli, że z Krakowa do Giżycka bardzo ciężko się płynie. Dlatego ten model zostawimy sobie na przyszłe lata. Tym razem załatwimy sprawę tradycyjnie, ale i tak musimy o parę rzeczy dopytać.",
+    "fieldsConfig": [
+      {
+        "type": "select",
+        "name": "isTravelling",
+        "label": "W jaki sposób dostajesz się na miejsce rejsu?",
+        "fullWidth": true,
+        "defaultValue": null,
+        "options": [
+          {
+            "label": "Jadę pociągiem z DPŻ.",
+            "value": true
+          },
+          {
+            "label": "Dojeżdżam we własnym zakresie.",
+            "value": false
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "name": "transportationOutbound",
+        "conditionalKey": "isTravelling",
+        "conditionalValue": true,
+        "label": "Wyjazd z:",
+        "fullWidth": true,
+        "defaultValue": null,
+        "options": [
+          {
+            "label": "Krakowa",
+            "value": "Kraków"
+          },
+          {
+            "label": "Warszawy",
+            "value": "Warszawa"
+          },
+          {
+            "label": "Inne",
+            "value": "Inne"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "name": "transportationReturn",
+        "conditionalKey": "isTravelling",
+        "conditionalValue": true,
+        "label": "Powrót do:",
+        "fullWidth": true,
+        "defaultValue": null,
+        "options": [
+          {
+            "label": "Krakowa",
+            "value": "Kraków"
+          },
+          {
+            "label": "Warszawy",
+            "value": "Warszawa"
+          },
+          {
+            "label": "Inne",
+            "value": "Inne"
           }
         ]
       }
@@ -96,7 +168,7 @@
             "imageChecked": "https://static.depezet.com/images/licence_NONE_c.svg"
           },
           {
-            "label": "Zeglarz Jachtowy",
+            "label": "Żeglorz Jachtowy",
             "value": "ŻJ",
             "image": "https://static.depezet.com/images/licence_ZJ.svg",
             "imageChecked": "https://static.depezet.com/images/licence_ZJ_c.svg"

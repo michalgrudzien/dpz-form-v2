@@ -44,8 +44,10 @@ const FormSection: FunctionComponent<FormSectionProps> = ({
   fieldsConfig,
 }) => {
   const fieldsNames: string[] = fieldsConfig.map((field) => field.name);
-  const isSectionValid: boolean = fieldsNames.every(
-    (fieldName) => touched[fieldName] && !errors.hasOwnProperty(fieldName)
+  const isSectionValid: boolean = fieldsConfig.every(
+    (field) =>
+      (touched[field.name] && !errors.hasOwnProperty(field.name)) ||
+      (!touched[field.name] && field.initiallyValid)
   );
 
   //TODO: handle this better :(

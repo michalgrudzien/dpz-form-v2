@@ -35,6 +35,7 @@ export type FieldProps = {
   placeholder?: string;
   conditionalKey?: string;
   conditionalValue?: string | boolean;
+  initiallyValid?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
   defaultValue: string;
@@ -63,6 +64,7 @@ const Field: FunctionComponent<FieldProps> = ({
   placeholder,
   conditionalKey,
   conditionalValue,
+  initiallyValid,
   disabled = false,
   fullWidth = false,
   defaultValue = "",
@@ -223,6 +225,7 @@ const Field: FunctionComponent<FieldProps> = ({
       );
     default:
       const isSelect: boolean = type === "select";
+      const isMultiline: boolean = type === "multiline";
       return (
         <Grid item xs={12} sm={fullWidth ? 12 : 6}>
           <Controller
@@ -239,12 +242,13 @@ const Field: FunctionComponent<FieldProps> = ({
                 label={label}
                 disabled={disabled}
                 placeholder={placeholder}
+                multiline={isMultiline}
                 fullWidth
                 InputProps={{
                   endAdornment: (
                     <>
-                      {valid && (
-                        <Grow in={valid}>
+                      {(valid || initiallyValid) && (
+                        <Grow in={valid || initiallyValid}>
                           <CheckCircleIcon htmlColor={colors.green} />
                         </Grow>
                       )}

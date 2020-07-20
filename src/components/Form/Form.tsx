@@ -22,9 +22,26 @@ const DetailsWrapper = styled.div`
   padding-top: 2em;
 `;
 
-const fieldsCount = fieldsConfig.reduce((acc, section) => {
-  return acc + section.fieldsConfig.length;
-}, 0);
+//TODO: handle this better :(
+const allFieldsNames = [
+  "name",
+  "surname",
+  "email",
+  "student",
+  "beer",
+  "isTravelling",
+  "transportationOutbound",
+  "transportationReturn",
+  "sailingExperience",
+  "sailingLicence",
+  "politics",
+  "diet",
+  "skills",
+  "whatCanYouTake",
+  "comments",
+  "rodoApproval",
+];
+const fieldsCount = allFieldsNames.length;
 
 const Form = () => {
   const {
@@ -51,8 +68,10 @@ const Form = () => {
   const computedFieldsCount: number =
     watch("isTravelling") !== false ? fieldsCount : fieldsCount - 2;
 
-  const validFieldsCount: number = Object.keys(touched).filter(
-    (fieldName) => !errors.hasOwnProperty(fieldName)
+  const validFieldsCount: number = allFieldsNames.filter(
+    (fieldName) =>
+      (!errors.hasOwnProperty(fieldName) && touched[fieldName]) ||
+      ["skills", "whatCanYouTake", "comments"].includes(fieldName)
   ).length;
 
   return (

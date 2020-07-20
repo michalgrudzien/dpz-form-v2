@@ -72,7 +72,7 @@ export default Yup.object().shape({
   skills: Yup.string(),
   whatCanYouTake: Yup.string(),
   politics: Yup.mixed().oneOf(
-    [1, 2, 3, 4, 5],
+    ["1", "2", "3", "4", "5"],
     "Wiemy, że jakieś poglądy masz. Nie krępuj się."
   ),
   diet: Yup.bool().oneOf(

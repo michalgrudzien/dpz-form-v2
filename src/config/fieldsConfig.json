@@ -188,5 +188,101 @@
         ]
       }
     ]
+  },
+  {
+    "title": "Poglądy i choroby",
+    "description": "Doświadczenie to jedno, werbalne potyczki przy butelce rumu drugie. Nie chcemy przecież upchać wszystkich fanów teorii konspiracyjnych na jednej Sasance. Bo kto wtedy kłóciłby się na pozostałych jachtach? Pytanie o diety i alergie jest za to czysto kurtuazyjne.",
+    "fieldsConfig": [
+      {
+        "type": "radio",
+        "name": "politics",
+        "label": "Kontrowersyjne poglądy polityczne i społeczne",
+        "fullWidth": true,
+        "options": [
+          {
+            "label": "Co?",
+            "value": "1"
+          },
+          {
+            "label": "Zdarzyło mi się być na jachcie, ale niczego nie obiecuję.",
+            "value": "2"
+          },
+          {
+            "label": "Wiem gdzie ta keja i co to ten jacht.",
+            "value": "3"
+          },
+          {
+            "label": "Pływam. Po prostu.",
+            "value": "4"
+          },
+          {
+            "label": "Prułem baksztagiem jeszcze na pokładzie \"I'm alone\".",
+            "value": "5"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "name": "diet",
+        "label": "Diety, uczulenia, alergie",
+        "fullWidth": true,
+        "defaultValue": false,
+        "options": [
+          {
+            "label": "Brak.",
+            "value": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Takie tam",
+    "description": "To jest moment, żeby się wypowiedzieć tak od serca, od siebie. W przydatnych umiejętnościach możesz zawrzeć dosłownie wszystko, co uznajesz za przydatne. Kto wie, może zrobimy turniej szydełkowania, jak będzie więcej chętnych niż zarząd? Rzeczy głupie/przydatne/śmieszne to oczywista kategoria. Jedyne co możemy dodać w temacie, to że za wpisanie talii \"Eksplodujących kotków\" dostaniesz dodatkowe punkty, bo mamy w klubie już dwie! Tłumaczyć czym są uwagi, a tym bardziej czym są zażalenia, chyba nie muszę. PS Jeśli naprawdę masz jakąś alergię albo chorobę, o której powinniśmy wiedzieć, to daj znać właśnie tutaj.",
+    "fieldsConfig": [
+      {
+        "type": "multiline",
+        "name": "skills",
+        "label": "Inne przydatne umiejętności",
+        "placeholder": "Programowanie obiektowe, negocjacje z bosmanem, salsa (sos lub taniec)",
+        "initiallyValid": true,
+        "fullWidth": true
+      },
+      {
+        "type": "multiline",
+        "name": "whatCanYouTake",
+        "label": "Co przydatnego/głupiego/śmiesznego możesz ze sobą zabrać?",
+        "placeholder": "Latarkę, kuca z bronksu, akordeon",
+        "initiallyValid": true,
+        "fullWidth": true
+      },
+      {
+        "type": "multiline",
+        "name": "comments",
+        "label": "Uwagi, komentarze, zażalenia",
+        "placeholder": "Podwozie było złe i szyny, szyny, szyny... szyny też były złe.",
+        "initiallyValid": true,
+        "fullWidth": true
+      }
+    ]
+  },
+  {
+    "title": "Zgoda?",
+    "description": "Znasz ten etap z dosłownie każdej strony internetowej odwiedzanej od maja 2018. Zakładamy, że jesteś spoko i się zgodzisz, ale spytać i tak wypada, a wręcz należy.",
+    "fieldsConfig": [
+      {
+        "type": "checkbox",
+        "name": "rodoApproval",
+        "label": "Administratorem Danych Osobowych zebranych w powyższym formularzu jest Stowarzyszenie Dobra Praktyka Żeglarska z siedzibą na ul. Dworskiej 23/21 w Krakowie (kontakt@depezet.com). Wyrażam zgodę na przetwarzanie moich danych osobowych przez Administratora Danych Osobowych w celu organizacji rejsu, w którym wezmę udział. Dane osobowe będą przetwarzane i przechowywane do czasu cofnięcia zgody. Mam prawo dostępu do danych, sprostowania, usunięcia lub ograniczenia przetwarzania, sprzeciwu, wniesienia skargi do organu nadzorczego i do przeniesienia danych.",
+        "fullWidth": true,
+        "defaultValue": false,
+        "options": [
+          {
+            "label": "Rozumiem, zgadzam się.",
+            "value": true
+          }
+        ]
+      }
+    ]
   }
 ]

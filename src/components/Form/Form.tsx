@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Wave from "react-wavify";
 import { useForm } from "react-hook-form";
@@ -75,7 +75,13 @@ const Form = () => {
     resolver: yupResolver(validationSchema),
     mode: "onBlur",
   });
-  const onSubmit = (data: object): void => console.log(data);
+
+  const [isSubmissionOpen, setSubmissionOpen] = useState(false);
+
+  const onSubmit = (data: object): void => {
+    setSubmissionOpen(true);
+    console.log(data);
+  };
   const formProps = {
     control,
     getValues,
@@ -149,11 +155,10 @@ const Form = () => {
           ))}
           <StyledWave
             fill={isFormValid ? colors.secondary : colors.lightGrey}
-            paused={!isFormValid}
             options={{
               height: 10,
               amplitude: 20,
-              speed: 0.1,
+              speed: 0.15,
               points: 3,
             }}
           />
@@ -163,13 +168,18 @@ const Form = () => {
               variant={isFormValid ? `contained` : undefined}
               color="primary"
               disabled={!isFormValid}
+              type="submit"
             >
               {isFormValid
                 ? "Płyniemy!"
                 : "Chyba jeszcze coś zostało do wypełnienia..."}
             </Button>
           </StyledBox>
-          <SubmissionDialog />
+          <SubmissionDialog
+            open={isSubmissionOpen}
+            setOpen={setSubmissionOpen}
+            isSubmitting={true}
+          />
         </Card>
       </form>
     </>

@@ -14,16 +14,24 @@ import {
 
 type SubmissionDialogProps = {
   isSubmitting?: boolean;
+  open: boolean;
+  setOpen: Function;
 };
 
-const SubmissionDialog: FunctionComponent<SubmissionDialogProps> = () => {
+const SubmissionDialog: FunctionComponent<SubmissionDialogProps> = ({
+  isSubmitting,
+  open,
+  setOpen,
+}) => {
   return (
-    <Dialog open={false}>
-      <DialogContent>
-        <Box display="flex" justifyContent="center">
-          <CircularProgress />
-        </Box>
-      </DialogContent>
+    <Dialog open={open}>
+      {isSubmitting && (
+        <DialogContent>
+          <Box display="flex" justifyContent="center">
+            <CircularProgress />
+          </Box>
+        </DialogContent>
+      )}
       {/* <DialogContent>
         <Typography>
           <Typography variant="h4">

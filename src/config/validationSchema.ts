@@ -1,5 +1,7 @@
 import * as Yup from "yup";
 
+//TODO: organize depending on trip type
+
 export default Yup.object().shape({
   name: Yup.string().required("Nie można nie mieć imienia."),
   surname: Yup.string().required("Chyba jakieś masz?"),
@@ -15,20 +17,20 @@ export default Yup.object().shape({
     [true],
     "Wiemy, że lubisz Specjala, ale tam tylko Φιξ leją."
   ),
-  dateBirth: Yup.date().required(
-    "Wiemy, o wiek się nie pyta, ale to naprawdę istotne!"
-  ),
-  birthplace: Yup.string().required(
-    "Jeśli znaleźli Cię w główce kapusty, to chociaż powiedz gdzie dokładnie!"
-  ),
-  country: Yup.string().required("No nie wstydź się, powiedz gdzie mieszkasz."),
-  city: Yup.string().required(
-    "Jak się wstydzisz miejscowości, to daj chociaż najbliższą aglomerację!"
-  ),
-  idCardNumber: Yup.string().required(
-    "Jak tego nie podasz, to jak mamy wziąć na Ciebie kredyt w Providencie?"
-  ),
-  nationality: Yup.string().required("A Ty co? Apartyda?"),
+  // dateBirth: Yup.date().required(
+  //   "Wiemy, o wiek się nie pyta, ale to naprawdę istotne!"
+  // ),
+  // birthplace: Yup.string().required(
+  //   "Jeśli znaleźli Cię w główce kapusty, to chociaż powiedz gdzie dokładnie!"
+  // ),
+  // country: Yup.string().required("No nie wstydź się, powiedz gdzie mieszkasz."),
+  // city: Yup.string().required(
+  //   "Jak się wstydzisz miejscowości, to daj chociaż najbliższą aglomerację!"
+  // ),
+  // idCardNumber: Yup.string().required(
+  //   "Jak tego nie podasz, to jak mamy wziąć na Ciebie kredyt w Providencie?"
+  // ),
+  // nationality: Yup.string().required("A Ty co? Apartyda?"),
   isTravelling: Yup.mixed()
     .nullable()
     .notOneOf(
@@ -51,12 +53,12 @@ export default Yup.object().shape({
         "A Ty co? Pojawiasz się znikąd? Weź coś zaznacz."
       ),
     }),
-  hasBLicence: Yup.mixed()
-    .nullable()
-    .notOneOf([null], "Można nie mieć, ale nie można tego nie powiedzieć!"),
-  hasSRC: Yup.mixed()
-    .nullable()
-    .notOneOf([null], "Jak nie wiesz, co to jest, to kliknij, że nie."),
+  // hasBLicence: Yup.mixed()
+  //   .nullable()
+  //   .notOneOf([null], "Można nie mieć, ale nie można tego nie powiedzieć!"),
+  // hasSRC: Yup.mixed()
+  //   .nullable()
+  //   .notOneOf([null], "Jak nie wiesz, co to jest, to kliknij, że nie."),
   sailingLicence: Yup.mixed().oneOf(
     ["NONE", "ŻJ", "JSM", "KJ"],
     "Można nie mieć, ale to też zaznacz!"
@@ -65,10 +67,10 @@ export default Yup.object().shape({
     ["1", "2", "3", "4", "5"],
     "Twój przyszły sternik chce wiedzieć, czego nie może się po tobie spodziewać. No weź."
   ),
-  tshirtSize: Yup.mixed().oneOf(
-    ["S", "M", "L", "XL", "XXL"],
-    "Nie wstydź się, podaj rozmiar, nie będziemy się śmiać."
-  ),
+  // tshirtSize: Yup.mixed().oneOf(
+  //   ["S", "M", "L", "XL", "XXL"],
+  //   "Nie wstydź się, podaj rozmiar, nie będziemy się śmiać."
+  // ),
   skills: Yup.string(),
   whatCanYouTake: Yup.string(),
   politics: Yup.mixed().oneOf(

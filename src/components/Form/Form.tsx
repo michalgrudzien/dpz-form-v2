@@ -1,10 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-
+import Wave from "react-wavify";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 
-import { Grid, Card, CardContent, Button, Typography } from "@material-ui/core";
+import {
+  Grid,
+  Card,
+  CardContent,
+  Button,
+  Typography,
+  Box,
+} from "@material-ui/core";
 
 import colors from "config/colors";
 import validationSchema from "config/validationSchema";
@@ -20,6 +27,18 @@ const MainTextWrapper = styled.div`
 
 const DetailsWrapper = styled.div`
   padding-top: 2em;
+`;
+
+const StyledWave = styled(Wave)`
+  position: relative;
+  bottom: -124px;
+`;
+
+const StyledBox = styled(Box)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 104px;
 `;
 
 //TODO: handle this better :(
@@ -50,7 +69,7 @@ const Form = () => {
     getValues,
     errors,
     watch,
-    formState: { touched },
+    formState: { touched, isValid: isFormValid },
   } = useForm({
     resolver: yupResolver(validationSchema),
     mode: "onBlur",
@@ -127,9 +146,27 @@ const Form = () => {
               last={index === fieldsConfig.length - 1}
             />
           ))}
-          <Button size="large" variant="contained" color="primary" fullWidth>
-            Płyniemy!
-          </Button>
+          <StyledWave
+            fill={isFormValid ? colors.secondary : colors.lightGrey}
+            options={{
+              height: 10,
+              amplitude: 20,
+              speed: 0.1,
+              points: 3,
+            }}
+          />
+          <StyledBox>
+            <Button
+              size="large"
+              variant={isFormValid ? `contained` : undefined}
+              color="primary"
+              disabled={!isFormValid}
+            >
+              {isFormValid
+                ? "Płyniemy!"
+                : "Chyba jeszcze coś zostało do wypełnienia..."}
+            </Button>
+          </StyledBox>
         </Card>
       </form>
     </>

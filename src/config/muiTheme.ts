@@ -53,7 +53,6 @@ const theme = createMuiTheme({
     MuiButton: {
       root: {
         fontWeight: 600,
-        borderRadius: 0,
       },
     },
     MuiCardContent: {

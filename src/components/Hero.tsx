@@ -3,15 +3,8 @@ import styled from "styled-components";
 
 import { Typography, Grid, CardContent } from "@material-ui/core";
 
+import Logo from "components/Logo";
 import colors from "config/colors";
-import wtLogoImg from "assets/images/wt_logo.svg";
-
-const Logo = styled.img`
-  display: block;
-  width: 250px;
-  padding: 2em 0 1em;
-  margin: 0 auto;
-`;
 
 const MainTextWrapper = styled.div`
   color: ${colors.white};
@@ -19,12 +12,9 @@ const MainTextWrapper = styled.div`
   padding-bottom: 2em;
 `;
 
-//TODO: add WSS logo depending on env
-const logoImg = wtLogoImg;
-
 const Hero: FunctionComponent = () => (
   <>
-    <Logo src={logoImg} alt="DPŻ World Tour" />
+    <Logo />
     <CardContent>
       <MainTextWrapper>
         <Typography color="inherit" variant="h2" component="h1">

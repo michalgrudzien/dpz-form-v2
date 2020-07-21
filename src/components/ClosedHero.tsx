@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
-import { Typography, Grid, CardContent } from "@material-ui/core";
+import { Typography, CardContent } from "@material-ui/core";
 
 import Logo from "components/Logo";
 import colors from "config/colors";

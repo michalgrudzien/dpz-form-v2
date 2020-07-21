@@ -116,6 +116,7 @@ const Form = () => {
         <Card>
           {fieldsConfig.map((section, index) => (
             <FormSection
+              key={section.title}
               title={section.title}
               description={section.description}
               fieldsConfig={section.fieldsConfig}

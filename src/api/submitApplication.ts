@@ -1,6 +1,13 @@
-export default (data: any) =>
-  new Promise(function (resolve, reject) {
+import getTripType from "helpers/getTripType";
+import filterFields from "./filterFields";
+
+export default (data: any) => {
+  const payload = filterFields(data, getTripType());
+
+  return new Promise(function (resolve, reject) {
     setTimeout(() => {
-      reject(data);
+      console.log(payload);
+      reject(payload);
     }, 1000);
   });
+};

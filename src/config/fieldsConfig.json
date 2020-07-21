@@ -251,7 +251,7 @@
       {
         "type": "multiline",
         "name": "whatCanYouTake",
-        "label": "Co przydatnego/głupiego/śmiesznego możesz ze sobą zabrać?",
+        "label": "Co przydatnego/głupiego/śmiesznego możesz wziąć?",
         "placeholder": "Latarkę, kuca z bronksu, akordeon",
         "initiallyValid": true,
         "fullWidth": true

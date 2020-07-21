@@ -54,20 +54,6 @@ const Hero: FunctionComponent = () => (
             </Typography>
           </Grid>
         </Grid>
-
-        {/* <DetailsWrapper>
-          <Grid container>
-            <Grid xs={12} md={4} item>
-              
-            </Grid>
-            <Grid xs={12} md={4} item>
-              
-            </Grid>
-            <Grid xs={12} md={4} item>
-              x
-            </Grid>
-          </Grid>
-        </DetailsWrapper> */}
       </MainTextWrapper>
     </CardContent>
   </>

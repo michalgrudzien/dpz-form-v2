@@ -19,6 +19,14 @@ import fieldsConfig from "config/fieldsConfig.json";
 import FormSection from "./FormSection";
 import FormProgress from "./FormProgress";
 import SubmissionDialog from "./SubmissionDialog";
+import { submitApplication } from "api";
+
+export enum SubmissionState {
+  INIT = "init",
+  PENDING = "pending",
+  SUCCESS = "success",
+  ERROR = "error",
+}
 
 const MainTextWrapper = styled.div`
   color: ${colors.white};
@@ -76,12 +84,25 @@ const Form = () => {
     mode: "onBlur",
   });
 
-  const [isSubmissionOpen, setSubmissionOpen] = useState(false);
+  const [submissionState, setSubmissionState]: [
+    SubmissionState,
+    Function
+  ] = useState(SubmissionState.INIT);
 
-  const onSubmit = (data: object): void => {
-    setSubmissionOpen(true);
-    console.log(data);
+  const onSubmit = (data: any): void => {
+    setSubmissionState(SubmissionState.PENDING);
+
+    submitApplication(data)
+      .then((data) => {
+        setSubmissionState(SubmissionState.SUCCESS);
+      })
+      .catch(() => {
+        setSubmissionState(SubmissionState.ERROR);
+      });
   };
+
+  const submit = handleSubmit(onSubmit);
+
   const formProps = {
     control,
     getValues,
@@ -142,7 +163,7 @@ const Form = () => {
           </DetailsWrapper>
         </MainTextWrapper>
       </CardContent>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={submit}>
         <Card>
           {fieldsConfig.map((section, index) => (
             <FormSection
@@ -176,9 +197,9 @@ const Form = () => {
             </Button>
           </StyledBox>
           <SubmissionDialog
-            open={isSubmissionOpen}
-            setOpen={setSubmissionOpen}
-            isSubmitting={true}
+            setSubmissionState={setSubmissionState}
+            submissionState={submissionState}
+            submit={submit}
           />
         </Card>
       </form>

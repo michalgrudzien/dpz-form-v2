@@ -4,22 +4,17 @@ import Wave from "react-wavify";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 
-import {
-  Grid,
-  Card,
-  CardContent,
-  Button,
-  Typography,
-  Box,
-} from "@material-ui/core";
+import { Card, Button, Box } from "@material-ui/core";
 
 import colors from "config/colors";
 import validationSchema from "config/validationSchema";
 import fieldsConfig from "config/fieldsConfig.json";
+
+import { submitApplication } from "api";
+
 import FormSection from "./FormSection";
 import FormProgress from "./FormProgress";
 import SubmissionDialog from "./SubmissionDialog";
-import { submitApplication } from "api";
 
 export enum SubmissionState {
   INIT = "init",
@@ -27,16 +22,6 @@ export enum SubmissionState {
   SUCCESS = "success",
   ERROR = "error",
 }
-
-const MainTextWrapper = styled.div`
-  color: ${colors.white};
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
-  padding-bottom: 2em;
-`;
-
-const DetailsWrapper = styled.div`
-  padding-top: 2em;
-`;
 
 const StyledWave = styled(Wave)`
   position: relative;
@@ -51,7 +36,7 @@ const StyledBox = styled(Box)`
 `;
 
 //TODO: handle this better :(
-const allFieldsNames = [
+const allFieldsNames: string[] = [
   "name",
   "surname",
   "email",
@@ -127,42 +112,6 @@ const Form = () => {
         fieldsCount={computedFieldsCount}
         validFields={validFieldsCount}
       />
-      <CardContent>
-        <MainTextWrapper>
-          <Typography color="inherit" variant="h2" component="h1">
-            No siema!
-          </Typography>
-          <Typography color="inherit" variant="body1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </Typography>
-
-          <DetailsWrapper>
-            <Grid container>
-              <Grid xs={12} md={4} item>
-                <Typography color="inherit" variant="h5">
-                  Termin: 19.06.2020 - 26.06.2020
-                </Typography>
-              </Grid>
-              <Grid xs={12} md={4} item>
-                <Typography color="inherit" variant="h5">
-                  Koszt: 900zł
-                </Typography>
-              </Grid>
-              <Grid xs={12} md={4} item>
-                <Typography color="inherit" variant="h5">
-                  Start: Kraków/Gizycko
-                </Typography>
-              </Grid>
-            </Grid>
-          </DetailsWrapper>
-        </MainTextWrapper>
-      </CardContent>
       <form onSubmit={submit}>
         <Card>
           {fieldsConfig.map((section, index) => (

@@ -1,7 +1,7 @@
 [
   {
     "title": "Dane osobowe",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "description": "Zanim po raz pierwszy rzucimy cumy, potrzebujemy lepiej poznać nasze przyszłe załogi. I spokojnie, tych danych użyjemy tylko do organizacji World Touru 2020, nie planujemy zakrojonej na szeroką skalę akcji a'la Cambridge Analytica.",
     "fieldsConfig": [
       {
         "type": "text",
@@ -200,23 +200,23 @@
         "fullWidth": true,
         "options": [
           {
-            "label": "Co?",
+            "label": "Ja się nie kłócę, bo nie widzę takiej potrzeby.",
             "value": "1"
           },
           {
-            "label": "Zdarzyło mi się być na jachcie, ale niczego nie obiecuję.",
+            "label": "Po pół litrze chętnie bym z kimś podebatował, ale zazwyczaj i tak zasypiam, więc nie sprawiam problemów.",
             "value": "2"
           },
           {
-            "label": "Wiem gdzie ta keja i co to ten jacht.",
+            "label": "Jestem spokojny dopóki wysoki rangą urzędnik państwowy nie wspomina o szczepieniu na szkarlatynę, wtedy mnie trafia.",
             "value": "3"
           },
           {
-            "label": "Pływam. Po prostu.",
+            "label": "Kłócę się z każdym, od wegan po Konfederację. Bo lubię.",
             "value": "4"
           },
           {
-            "label": "Prułem baksztagiem jeszcze na pokładzie \"I'm alone\".",
+            "label": "Ten cały KOWID to spisek i chańba!1!",
             "value": "5"
           }
         ]
@@ -273,12 +273,12 @@
       {
         "type": "checkbox",
         "name": "rodoApproval",
-        "label": "Administratorem Danych Osobowych zebranych w powyższym formularzu jest Stowarzyszenie Dobra Praktyka Żeglarska z siedzibą na ul. Dworskiej 23/21 w Krakowie (kontakt@depezet.com). Wyrażam zgodę na przetwarzanie moich danych osobowych przez Administratora Danych Osobowych w celu organizacji rejsu, w którym wezmę udział. Dane osobowe będą przetwarzane i przechowywane do czasu cofnięcia zgody. Mam prawo dostępu do danych, sprostowania, usunięcia lub ograniczenia przetwarzania, sprzeciwu, wniesienia skargi do organu nadzorczego i do przeniesienia danych.",
+        "label": "Administratorem Danych Osobowych zebranych w powyższym formularzu jest Stowarzyszenie Dobra Praktyka Żeglarska z siedzibą na ul. Dworskiej 23/21 w Krakowie (kontakt@depezet.com). Wyrażam zgodę na przetwarzanie moich danych osobowych przez Administratora Danych Osobowych w celu organizacji rejsu, w którym wezmę udział. Dane osobowe będą przetwarzane i przechowywane do dnia 20 października 2020. Mam prawo dostępu do danych, sprostowania, usunięcia lub ograniczenia przetwarzania, sprzeciwu, wniesienia skargi do organu nadzorczego i do przeniesienia danych.",
         "fullWidth": true,
         "defaultValue": false,
         "options": [
           {
-            "label": "Rozumiem, zgadzam się.",
+            "label": "Rozumiem, niech będzie.",
             "value": true
           }
         ]

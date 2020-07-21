@@ -31,15 +31,15 @@ const Hero: FunctionComponent = () => (
           No siema!
         </Typography>
         <Grid container spacing={8}>
-          <Grid item xs={12} md={9}>
+          <Grid item xs={12} md={6}>
             <Typography color="inherit" variant="body1">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              W roku 2020 sporo rzeczy nie pykło i co nieco trzeba było odwołać
+              (wesela, premiery filmowe, festiwal muzyki przeróżnej Grasz
+              Bór...), ale widzimy, że na World Tourze DPŻ zależy Ci równie
+              mocno jak nam! Dziękujemy!
+              <br />
+              <br />A teraz przejdźmy do konkretów, czyli formularza
+              zgłoszeniowego.
             </Typography>
           </Grid>
           <Grid item xs={12} md={3}>

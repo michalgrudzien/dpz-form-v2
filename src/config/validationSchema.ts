@@ -13,10 +13,7 @@ export default Yup.object().shape({
     "Niestety, bez tego ani rusz, ani płyń."
   ),
   student: Yup.mixed().notOneOf([null], "No masz czy nie?"),
-  beer: Yup.bool().oneOf(
-    [true],
-    "Wiemy, że lubisz Specjala, ale tam tylko Φιξ leją."
-  ),
+  beer: Yup.bool().oneOf([true], "Innego i tak nie będzie."),
   // dateBirth: Yup.date().required(
   //   "Wiemy, o wiek się nie pyta, ale to naprawdę istotne!"
   // ),

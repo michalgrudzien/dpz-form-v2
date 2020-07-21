@@ -32,7 +32,7 @@ const theme = createMuiTheme({
     h4: headingStyle,
     h5: headingStyle,
     body1: bodyStyle,
-    fontSize: 12.5,
+    fontSize: 14,
   },
   palette: {
     primary: { main: colors.primary, contrastText: colors.white },

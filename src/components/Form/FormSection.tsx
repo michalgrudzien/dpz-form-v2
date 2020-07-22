@@ -59,11 +59,11 @@ const FormSection: FunctionComponent<FormSectionProps> = ({
       <CardContent>
         <Grid container spacing={8}>
           <Grid item xs={12} md={5}>
-            <Typography variant="h3">
+            <Typography variant="h4">
               {title}
               <Grow in={isSectionValid || isValidTransport}>
                 <StyledCheckCircleIcon
-                  fontSize="large"
+                  fontSize="default"
                   htmlColor={colors.green}
                 />
               </Grow>

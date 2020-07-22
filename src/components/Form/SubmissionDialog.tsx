@@ -8,6 +8,7 @@ import {
   Box,
   DialogActions,
   Button,
+  Link,
 } from "@material-ui/core";
 
 import { SubmissionState } from "./Form";
@@ -40,8 +41,11 @@ const renderDialogContent = (
               <Typography variant="h4">Bip bop, załatwione</Typography>
               Już za chwilę dostaniesz od nas maila z potwierdzeniem i kolejnymi
               krokami, które fajnie by było podjąć. Jeśli&nbsp;mail nie
-              przyjdzie w rozsądnym czasie, napisz do nas na dowolnym kanale
-              (mail, Messenger, a nawet Insta), a zajmiemy się tym od razu!
+              przyjdzie w rozsądnym czasie, napisz do nas na dowolnym kanale (
+              <Link href="mailto:kontakt@depezet.com">mail</Link>,{" "}
+              <Link href="https://m.me/dobrapraktykazeglarska">Messenger</Link>,
+              a nawet <Link href="https://instagram.com/depezet">Insta</Link>),
+              a zajmiemy się tym od razu!
             </Typography>
           </DialogContent>
           <DialogActions>

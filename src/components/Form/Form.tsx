@@ -20,6 +20,7 @@ export enum SubmissionState {
   INIT = "init",
   PENDING = "pending",
   SUCCESS = "success",
+  FINISHED = "finished",
   ERROR = "error",
 }
 
@@ -96,6 +97,9 @@ const Form = () => {
     watch,
   };
 
+  const isFormDisabled = submissionState.valueOf() === SubmissionState.FINISHED;
+
+  //TODO: handle isFormValid & FINISHED better
   //TODO: handle this better :(
   const computedFieldsCount: number =
     watch("isTravelling") !== false ? fieldsCount : fieldsCount - 2;
@@ -122,10 +126,17 @@ const Form = () => {
               fieldsConfig={section.fieldsConfig}
               formProps={formProps}
               last={index === fieldsConfig.length - 1}
+              isFormDisabled={isFormDisabled}
             />
           ))}
           <StyledWave
-            fill={isFormValid ? colors.secondary : colors.lightGrey}
+            fill={
+              isFormValid
+                ? submissionState.valueOf() === SubmissionState.FINISHED
+                  ? colors.green
+                  : colors.secondary
+                : colors.lightGrey
+            }
             options={{
               height: 10,
               amplitude: 20,
@@ -138,11 +149,16 @@ const Form = () => {
               size="large"
               variant={isFormValid ? `contained` : undefined}
               color="primary"
-              disabled={!isFormValid}
+              disabled={
+                !isFormValid ||
+                submissionState.valueOf() === SubmissionState.FINISHED
+              }
               type="submit"
             >
               {isFormValid
-                ? "Płyniemy!"
+                ? submissionState.valueOf() === SubmissionState.FINISHED
+                  ? "Wszystko załatwione :) Sprawdź swoją skrzynkę!"
+                  : "Płyniemy!"
                 : "Chyba jeszcze coś zostało do wypełnienia..."}
             </Button>
           </StyledBox>

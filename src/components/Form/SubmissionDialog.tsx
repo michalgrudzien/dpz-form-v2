@@ -53,7 +53,7 @@ const renderDialogContent = (
               size="large"
               color="primary"
               variant="contained"
-              onClick={() => setSubmissionState(SubmissionState.INIT)}
+              onClick={() => setSubmissionState(SubmissionState.FINISHED)}
             >
               OK
             </Button>
@@ -105,7 +105,12 @@ const SubmissionDialog: FunctionComponent<SubmissionDialogProps> = ({
   submit,
 }) => {
   return (
-    <Dialog open={submissionState !== SubmissionState.INIT}>
+    <Dialog
+      open={
+        submissionState !== SubmissionState.INIT &&
+        submissionState !== SubmissionState.FINISHED
+      }
+    >
       {renderDialogContent(submissionState, setSubmissionState, submit)}
     </Dialog>
   );

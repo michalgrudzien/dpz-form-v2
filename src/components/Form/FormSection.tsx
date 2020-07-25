@@ -26,6 +26,7 @@ type FormSectionProps = {
     watch: any;
   };
   fieldsConfig: any[];
+  isFormDisabled: boolean;
 };
 
 const Wrapper = styled.div`
@@ -42,6 +43,7 @@ const FormSection: FunctionComponent<FormSectionProps> = ({
   last = false,
   formProps: { control, getValues, errors, touched, watch },
   fieldsConfig,
+  isFormDisabled,
 }) => {
   const fieldsNames: string[] = fieldsConfig.map((field) => field.name);
   const isSectionValid: boolean = fieldsConfig.every(
@@ -80,6 +82,7 @@ const FormSection: FunctionComponent<FormSectionProps> = ({
                   error={errors[field.name]}
                   touched={!!touched[field.name]}
                   {...field}
+                  disabled={isFormDisabled}
                 />
               ))}
             </Grid>

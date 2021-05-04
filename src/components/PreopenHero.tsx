@@ -14,19 +14,19 @@ const MainTextWrapper = styled.div`
   text-align: center;
 `;
 
-const ClosedHero: FunctionComponent = () => (
+const PreopenHero: FunctionComponent = () => (
   <>
     <Logo />
     <CardContent>
       <MainTextWrapper>
         <Typography color="inherit" variant="h4" component="h1">
-          Zapisy zakończone!
+          Dobrze trafiłeś!
           <br />
-          Do zobaczenia na pokładzie :)
+          Tu wkrótce pojawi się formularz zgłoszeniowy.
         </Typography>
       </MainTextWrapper>
     </CardContent>
   </>
 );
 
-export default ClosedHero;
+export default PreopenHero;

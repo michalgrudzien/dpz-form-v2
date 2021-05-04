@@ -145,34 +145,36 @@ const Field: FunctionComponent<FieldProps> = ({
                   }}
                 >
                   <Grid container>
-                    {options.map((option: Option) => (
-                      <Grid item xs={12} sm={6} md={3}>
-                        <FormControlLabel
-                          value={option.value}
-                          label={option.label}
-                          labelPlacement="bottom"
-                          disabled={disabled}
-                          control={
-                            <Radio
-                              icon={
-                                <img
-                                  style={{ width: "110px" }}
-                                  src={option.image}
-                                  alt={option.label}
-                                />
-                              }
-                              checkedIcon={
-                                <img
-                                  style={{ width: "110px" }}
-                                  src={option.imageChecked}
-                                  alt={option.label}
-                                />
-                              }
-                            />
-                          }
-                        />
-                      </Grid>
-                    ))}
+                    {options.map((option: Option) => {
+                      return (
+                        <Grid item xs={12} sm={6} md={3}>
+                          <FormControlLabel
+                            value={option.value}
+                            label={option.label}
+                            labelPlacement="bottom"
+                            disabled={disabled}
+                            control={
+                              <Radio
+                                icon={
+                                  <img
+                                    style={{ width: "110px" }}
+                                    src={option.image}
+                                    alt={option.label}
+                                  />
+                                }
+                                checkedIcon={
+                                  <img
+                                    style={{ width: "110px" }}
+                                    src={option.imageChecked}
+                                    alt={option.label}
+                                  />
+                                }
+                              />
+                            }
+                          />
+                        </Grid>
+                      );
+                    })}
                   </Grid>
                 </RadioGroup>
                 <FormHelperText>{error?.message}</FormHelperText>

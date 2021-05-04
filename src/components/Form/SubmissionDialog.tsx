@@ -45,7 +45,8 @@ const renderDialogContent = (
               <Link href="mailto:kontakt@depezet.com">mail</Link>,{" "}
               <Link href="https://m.me/dobrapraktykazeglarska">Messenger</Link>,
               a nawet <Link href="https://instagram.com/depezet">Insta</Link>),
-              a zajmiemy się tym od razu!
+              a zajmiemy się tym od razu!{" "}
+              <strong>Pamiętaj, żeby sprawdzić folder SPAM ;)</strong>
             </Typography>
           </DialogContent>
           <DialogActions>

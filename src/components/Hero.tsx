@@ -34,13 +34,13 @@ const Hero: FunctionComponent = () => (
           </Grid>
           <Grid item xs={12} md={3}>
             <Typography color="inherit" variant="h5">
-              Termin: 19.09.2020 - 26.09.2020
+              Termin: 12.06.2021 - 19.06.2021
             </Typography>
             <Typography color="inherit" variant="h5">
-              Koszt: 900 PLN
+              Koszt: 950 PLN
             </Typography>
             <Typography color="inherit" variant="h5">
-              Start: Kraków/Giżycko
+              Start: Kraków/Ruciane Nida
             </Typography>
           </Grid>
         </Grid>

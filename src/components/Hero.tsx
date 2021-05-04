@@ -23,10 +23,11 @@ const Hero: FunctionComponent = () => (
         <Grid container spacing={8}>
           <Grid item xs={12} md={6}>
             <Typography color="inherit" variant="body1">
-              W roku 2020 sporo rzeczy nie pykło i co nieco trzeba było odwołać
-              (wesela, premiery filmowe, festiwal muzyki przeróżnej Grasz
-              Bór...), ale widzimy, że na World Tourze DPŻ zależy Ci równie
-              mocno jak nam! Dziękujemy!
+              Rok 2021 nie spełnił jak na razie wszystkich pokładanych w nim
+              oczekiwań, ale jesteśmy bliżej niż dalej. Jednym z elementów
+              starej i&nbsp;nowej normalności musi oczywiście być wyjazd DPŻ,
+              więc bardzo dziękujemy, że razem z nami płyniesz po takie sobie
+              jutro! ;)
               <br />
               <br />A teraz przejdźmy do konkretów, czyli formularza
               zgłoszeniowego.

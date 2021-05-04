@@ -200,19 +200,19 @@
         "fullWidth": true,
         "options": [
           {
-            "label": "Ja się nie kłócę, bo nie widzę takiej potrzeby.",
+            "label": "Usposobienie łagodne niczym lagun na instrybutorze.",
             "value": "1"
           },
           {
-            "label": "Po pół litrze chętnie bym z kimś podebatował, ale zazwyczaj i tak zasypiam, więc nie sprawiam problemów.",
+            "label": "Po pół litrze chętnie bym z kimś podebatował, ale jeszcze nie aktywowali mi chipa ze szczepionki, więc nie mam dostępu do faktów.",
             "value": "2"
           },
           {
-            "label": "Jestem spokojny, dopóki wysoki rangą urzędnik państwowy nie wspomina o szczepieniu na szkarlatynę, wtedy mnie trafia.",
+            "label": "Jestem spokojny, ale jeszcze jedno słowo o tym, że Boseman powinien dostać Oscara, a mogę wybuchnąć.",
             "value": "3"
           },
           {
-            "label": "Kłócę się z każdym, od wegan po Konfederację. Bo lubię.",
+            "label": "Kłócę się z każdym, od Jachiry po Brauna. Dla sportu!",
             "value": "4"
           },
           {
@@ -260,7 +260,7 @@
         "type": "multiline",
         "name": "comments",
         "label": "Uwagi, komentarze, zażalenia",
-        "placeholder": "Podwozie było złe i szyny, szyny, szyny... szyny też były złe.",
+        "placeholder": "Wodociągi Kieleckie w sposób wzorcowy usuwają awarie, w sposób błyskawiczny. Jesteśmy w czołówce krajowej, a nawet światowej. Liczba awarii z roku na rok maleje.",
         "initiallyValid": true,
         "fullWidth": true
       }

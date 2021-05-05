@@ -6,6 +6,7 @@ const red = "#b90735";
 const turquoise = "#38aecc";
 const darkBlue = "#0c1a2b";
 const graphite = "#132F43";
+const orange = "#face70";
 const gradient = "linear-gradient(45deg, #0c1a2b 0%,#2f92aa 100%);";
 
 const rgb = {
@@ -21,6 +22,7 @@ export default {
   turquoise,
   darkBlue,
   graphite,
+  orange,
   gradient,
   primary: turquoise,
   secondary: darkBlue,

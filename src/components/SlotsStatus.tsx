@@ -3,7 +3,6 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import {
   Box,
   CircularProgress,
-  Paper,
   Typography,
   withStyles,
 } from "@material-ui/core";

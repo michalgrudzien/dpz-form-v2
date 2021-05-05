@@ -1,4 +1,4 @@
-import React, { ComponentType, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 
 import {
   Box,
@@ -6,8 +6,6 @@ import {
   CircularProgressProps,
   createStyles,
   Typography,
-  TypographyProps,
-  WithStyles,
   withStyles,
   makeStyles,
   Theme,

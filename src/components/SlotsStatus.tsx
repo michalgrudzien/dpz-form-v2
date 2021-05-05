@@ -32,6 +32,8 @@ const SlotsStatus: FunctionComponent = () => {
 
   const { placesAvailable = 1, places = 1 } = trip;
 
+  const noPlacesAvailable = placesAvailable < 1;
+
   const label = `${placesAvailable}/${places}`;
   const progress = Math.round((placesAvailable / places) * 100);
 
@@ -44,10 +46,17 @@ const SlotsStatus: FunctionComponent = () => {
         Wolne koje:
       </Typography>
       <CircularProgressWithLabel
-        value={progress}
+        value={noPlacesAvailable ? 100 : progress}
         label={label}
         htmlColor={htmlColor}
       />
+      {noPlacesAvailable && (
+        <Box pt={2}>
+          <Typography color="inherit" variant="h6">
+            Zapisy na listę rezerwową!
+          </Typography>
+        </Box>
+      )}
     </Wrapper>
   );
 };

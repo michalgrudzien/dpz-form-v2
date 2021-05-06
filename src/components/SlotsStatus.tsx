@@ -1,11 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 
-import {
-  Box,
-  CircularProgress,
-  Typography,
-  withStyles,
-} from "@material-ui/core";
+import { Box, Typography, withStyles } from "@material-ui/core";
 
 import CircularProgressWithLabel from "components/CircularProgressWithLabel";
 import getTrip from "api/getTrip";
@@ -20,15 +15,15 @@ const Wrapper = withStyles((theme) => ({
 }))(Box);
 
 const SlotsStatus: FunctionComponent = () => {
-  const [trip, setTrip]: [any, Function] = useState(null);
+  const [loadingTrip, setLoadingTrip] = useState(true);
+  const [trip, setTrip]: [any, Function] = useState({});
 
   useEffect(() => {
     getTrip(parseInt(process.env.REACT_APP_TRIP_ID || "0")).then(({ data }) => {
       setTrip(data);
+      setLoadingTrip(false);
     });
   }, []);
-
-  if (trip === null) return <CircularProgress />;
 
   const { placesAvailable = 1, places = 1 } = trip;
 
@@ -49,6 +44,7 @@ const SlotsStatus: FunctionComponent = () => {
         value={noPlacesAvailable ? 100 : progress}
         label={label}
         htmlColor={htmlColor}
+        loading={loadingTrip}
       />
       {noPlacesAvailable && (
         <Box pt={2}>

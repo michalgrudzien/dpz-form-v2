@@ -34,7 +34,8 @@ const Label = withStyles({
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      color: (props: any) => props.htmlColor,
+      color: ({ loading, htmlColor }: any) =>
+        loading ? theme.palette.primary : htmlColor,
     },
     bottom: {
       color: theme.palette.grey[100],
@@ -48,9 +49,10 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const CircularProgressWithLabel: FunctionComponent<
-  CircularProgressProps & { label: string; htmlColor: string }
+  CircularProgressProps & { label: string; htmlColor: string; loading: boolean }
 > = (props) => {
-  const styles = useStyles({ htmlColor: props.htmlColor });
+  const { loading, htmlColor, label, value } = props;
+  const styles = useStyles({ htmlColor, loading });
 
   return (
     <Box position="relative" display="inline-flex">
@@ -64,17 +66,18 @@ const CircularProgressWithLabel: FunctionComponent<
           classes={{ root: styles.bottom }}
         />
         <CircularProgress
-          variant="static"
+          variant={loading ? "indeterminate" : "static"}
           size={140}
           thickness={4.5}
-          value={props.value}
-          color="inherit"
+          value={value}
           classes={styles}
         />
       </Box>
-      <LabelBox>
-        <Label variant="body1">{props.label}</Label>
-      </LabelBox>
+      {!loading && (
+        <LabelBox>
+          <Label variant="body1">{label}</Label>
+        </LabelBox>
+      )}
     </Box>
   );
 };

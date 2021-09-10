@@ -85,8 +85,6 @@ const Form = () => {
 
   const isFormDisabled = submissionState.valueOf() === SubmissionState.FINISHED;
 
-  //TODO: handle isFormValid & FINISHED better
-  //TODO: handle this better :(
   const computedFieldsCount: number =
     watch("isTravelling") !== false ? fieldsCount : fieldsCount - 2;
 

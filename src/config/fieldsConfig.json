@@ -2,7 +2,7 @@
   {
     "tripType": null,
     "title": "Dane osobowe",
-    "description": "Zanim po raz pierwszy rzucimy cumy, potrzebujemy lepiej poznać nasze przyszłe załogi. I spokojnie, tych danych użyjemy tylko do organizacji World Touru 2021, nie planujemy zakrojonej na szeroką skalę akcji a'la Cambridge Analytica.",
+    "description": "Zanim po raz pierwszy rzucimy cumy, potrzebujemy lepiej poznać nasze przyszłe załogi. I spokojnie, tych danych użyjemy tylko do organizacji We Shall Sea 2021, nie planujemy zakrojonej na szeroką skalę akcji a'la Cambridge Analytica.",
     "fieldsConfig": [
       {
         "type": "text",
@@ -184,19 +184,19 @@
             "value": "1"
           },
           {
-            "label": "Zdarzyło mi się być na jachcie, ale niczego nie obiecuję.",
+            "label": "Mazury nie są mi obce, ale na łódce z kilem i chartplotterem jeszcze mnie nie było.",
             "value": "2"
           },
           {
-            "label": "Wiem gdzie ta keja i co to ten jacht.",
+            "label": "Znamy się z morzem, ale to raczej taka przelotna znajomość, nic poważnego.",
             "value": "3"
           },
           {
-            "label": "Pływam. Po prostu.",
+            "label": "Pływam na tyle dużo, że z Posejdonem jestem już na \"Ty\".",
             "value": "4"
           },
           {
-            "label": "Prułem baksztagiem jeszcze na pokładzie \"I'm alone\".",
+            "label": "Trzy czwarte szant jest o mnie, pozostałą jedną czwartą pisałem ja.",
             "value": "5"
           }
         ]
@@ -339,7 +339,7 @@
       {
         "type": "checkbox",
         "name": "rodoApproval",
-        "label": "Administratorem Danych Osobowych zebranych w powyższym formularzu jest Stowarzyszenie Dobra Praktyka Żeglarska z siedzibą na ul. Dworskiej 23/21 w Krakowie (kontakt@depezet.com). Wyrażam zgodę na przetwarzanie moich danych osobowych przez Administratora Danych Osobowych w celu organizacji rejsu, w którym wezmę udział. Dane osobowe będą przetwarzane i przechowywane do dnia 31 lipca 2021. Mam prawo dostępu do danych, sprostowania, usunięcia lub ograniczenia przetwarzania, sprzeciwu, wniesienia skargi do organu nadzorczego i do przeniesienia danych.",
+        "label": "Administratorem Danych Osobowych zebranych w powyższym formularzu jest Stowarzyszenie Dobra Praktyka Żeglarska z siedzibą na ul. Dworskiej 23/21 w Krakowie (kontakt@depezet.com). Wyrażam zgodę na przetwarzanie moich danych osobowych przez Administratora Danych Osobowych w celu organizacji rejsu, w którym wezmę udział. Dane osobowe będą przetwarzane i przechowywane do dnia 31 grudnia 2021. Mam prawo dostępu do danych, sprostowania, usunięcia lub ograniczenia przetwarzania, sprzeciwu, wniesienia skargi do organu nadzorczego i do przeniesienia danych.",
         "fullWidth": true,
         "defaultValue": false,
         "options": [

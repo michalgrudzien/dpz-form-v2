@@ -40,10 +40,10 @@ const Hero: FunctionComponent = () => (
             <Box pb={3}>
               <Typography color="inherit" variant="body1">
                 Rok 2021 nie spełnił jak na razie wszystkich pokładanych w nim
-                oczekiwań, ale jesteśmy bliżej niż dalej. Jednym z elementów
-                starej i&nbsp;nowej normalności musi oczywiście być wyjazd DPŻ,
-                więc bardzo dziękujemy, że razem z nami płyniesz po takie sobie
-                jutro! ;)
+                oczekiwań, ale jesteśmy bliżej niż dalej. Pełni nadziei (znów),
+                pakujemy walizki i ruszamy do Aten! Czas w końcu odczarować
+                drugą edycję DPŻ We Shall Sea, czyli naszej słonowodnej eskapady
+                :) Szykujemy dla Was dwa wesołe jachty.
                 <br />
                 <br />A teraz przejdźmy do konkretów, czyli formularza
                 zgłoszeniowego.

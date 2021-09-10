@@ -1,5 +1,6 @@
 [
   {
+    "tripType": null,
     "title": "Dane osobowe",
     "description": "Zanim po raz pierwszy rzucimy cumy, potrzebujemy lepiej poznać nasze przyszłe załogi. I spokojnie, tych danych użyjemy tylko do organizacji World Touru 2021, nie planujemy zakrojonej na szeroką skalę akcji a'la Cambridge Analytica.",
     "fieldsConfig": [
@@ -47,7 +48,7 @@
         "defaultValue": false,
         "options": [
           {
-            "label": "Czarny Specjal Mazowieckie",
+            "label": "Φιξ.",
             "value": true
           }
         ]
@@ -55,6 +56,51 @@
     ]
   },
   {
+    "tripType": "SEA",
+    "title": "Jeszcze wincyj danych!",
+    "description": "Rejs morski to niestety w 5% zabawa na wodzie, a w 95% upierdliwa papierologia, dlatego potrzebujemy od Ciebie jeszcze kilku detali. Urzoczyście przysięgamy, że knujemy coś niedobrego, ale akurat nie z danymi osobowymi.",
+    "fieldsConfig": [
+      {
+        "type": "date",
+        "name": "dateBirth",
+        "label": "Data urodzenia",
+        "placeholder": ""
+      },
+      {
+        "type": "text",
+        "name": "birthplace",
+        "label": "Miejsce urodzenia",
+        "placeholder": "Miasto, nie 'szpital'"
+      },
+      {
+        "type": "text",
+        "name": "country",
+        "label": "Kraj zamieszkania",
+        "placeholder": "np. Polska"
+      },
+      {
+        "type": "text",
+        "name": "city",
+        "label": "Miasto zamieszkania",
+        "placeholder": "np. Kraków"
+      },
+      {
+        "type": "text",
+        "name": "idCardNumber",
+        "label": "Nr dowodu osobistego/paszportu",
+        "placeholder": ""
+      },
+      {
+        "type": "text",
+        "name": "nationality",
+        "label": "Obywatelstwo",
+        "placeholder": "",
+        "defaultValue": "polskie"
+      }
+    ]
+  },
+  {
+    "tripType": "INLAND",
     "title": "Transport",
     "description": "Jesteśmy ambitni i czasem szaleni, ale starsi i ambitniejsi od nas powiedzieli, że z Krakowa do Rucianego bardzo ciężko się płynie. Dlatego ten model zostawimy sobie na przyszłe lata. Tym razem załatwimy sprawę tradycyjnie, ale i tak musimy o parę rzeczy dopytać.",
     "fieldsConfig": [
@@ -124,6 +170,7 @@
     ]
   },
   {
+    "tripType": null,
     "title": "Doświadczenie żeglarskie",
     "description": "Lubimy dzielić załogi tak, żeby w każdej znalazł się ktoś, kto odróżnia foka od foki. W idealnym świecie jest to sternik, ale każdemu sternikowi miło, kiedy ma kogoś do pomocy. Więc nie krępuj się, tu możesz się pochwalić swoimi nieprzeciętnymi umiejętnościami!",
     "fieldsConfig": [
@@ -186,10 +233,28 @@
             "imageChecked": "/images/licence_KJ_c.svg"
           }
         ]
+      },
+      {
+        "type": "select",
+        "name": "hasSRC",
+        "label": "Masz SRC?",
+        "fullWidth": true,
+        "initialValue": null,
+        "options": [
+          {
+            "label": "Tak.",
+            "value": true
+          },
+          {
+            "label": "Nie./A co to?",
+            "value": false
+          }
+        ]
       }
     ]
   },
   {
+    "tripType": null,
     "title": "Poglądy i choroby",
     "description": "Doświadczenie to jedno, werbalne potyczki przy butelce rumu drugie. Nie chcemy przecież upchać wszystkich fanów teorii konspiracyjnych na jednej Sasance. Bo kto wtedy kłóciłby się na pozostałych jachtach? Pytanie o diety i alergie jest za to czysto kurtuazyjne.",
     "fieldsConfig": [
@@ -237,6 +302,7 @@
     ]
   },
   {
+    "tripType": null,
     "title": "Takie tam",
     "description": "To jest moment, żeby się wypowiedzieć tak od serca, od siebie. W przydatnych umiejętnościach możesz zawrzeć dosłownie wszystko, co uznajesz za przydatne. Kto wie, może zrobimy turniej szydełkowania, jak będzie więcej chętnych niż zarząd? Rzeczy głupie/przydatne/śmieszne to oczywista kategoria. Jedyne co możemy dodać w temacie, to że za wpisanie talii \"Eksplodujących kotków\" dostaniesz dodatkowe punkty, bo mamy w klubie już dwie! Tłumaczyć czym są uwagi, a tym bardziej czym są zażalenia, chyba nie muszę. PS Jeśli naprawdę masz jakąś alergię albo chorobę, o której powinniśmy wiedzieć, to daj znać właśnie tutaj.",
     "fieldsConfig": [
@@ -267,6 +333,7 @@
     ]
   },
   {
+    "tripType": null,
     "title": "Zgoda?",
     "description": "Znasz ten etap z dosłownie każdej strony internetowej odwiedzanej od maja 2018. Zakładamy, że jesteś spoko i się zgodzisz, ale spytać i tak wypada, a wręcz należy.",
     "fieldsConfig": [

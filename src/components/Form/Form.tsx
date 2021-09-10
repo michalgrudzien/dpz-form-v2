@@ -7,14 +7,16 @@ import { yupResolver } from "@hookform/resolvers";
 import { Card, Button, Box } from "@material-ui/core";
 
 import colors from "config/colors";
-import validationSchema from "config/validationSchema";
+import getValidationSchema from "config/getValidationSchema";
 import fieldsConfig from "config/fieldsConfig.json";
 
 import { submitApplication } from "api";
+import getTripType from "helpers/getTripType";
 
 import FormSection from "./FormSection";
 import FormProgress from "./FormProgress";
 import SubmissionDialog from "./SubmissionDialog";
+import { FIELDS_PER_TRIP_TYPE } from "api/filterFields";
 
 export enum SubmissionState {
   INIT = "init",
@@ -36,26 +38,12 @@ const StyledBox = styled(Box)`
   height: 104px;
 `;
 
-//TODO: handle this better :(
-const allFieldsNames: string[] = [
-  "name",
-  "surname",
-  "email",
-  "student",
-  "beer",
-  "isTravelling",
-  "transportationOutbound",
-  "transportationReturn",
-  "sailingExperience",
-  "sailingLicence",
-  "politics",
-  "diet",
-  "skills",
-  "whatCanYouTake",
-  "comments",
-  "rodoApproval",
-];
+const tripType = getTripType();
+
+const allFieldsNames: string[] = FIELDS_PER_TRIP_TYPE[tripType];
 const fieldsCount = allFieldsNames.length;
+
+const validationSchema = getValidationSchema(tripType);
 
 const Form = () => {
   const {
@@ -70,10 +58,8 @@ const Form = () => {
     mode: "onBlur",
   });
 
-  const [submissionState, setSubmissionState]: [
-    SubmissionState,
-    Function
-  ] = useState(SubmissionState.INIT);
+  const [submissionState, setSubmissionState]: [SubmissionState, Function] =
+    useState(SubmissionState.INIT);
 
   const onSubmit = (data: any): void => {
     setSubmissionState(SubmissionState.PENDING);
@@ -118,17 +104,21 @@ const Form = () => {
       />
       <form onSubmit={submit}>
         <Card>
-          {fieldsConfig.map((section, index) => (
-            <FormSection
-              key={section.title}
-              title={section.title}
-              description={section.description}
-              fieldsConfig={section.fieldsConfig}
-              formProps={formProps}
-              last={index === fieldsConfig.length - 1}
-              isFormDisabled={isFormDisabled}
-            />
-          ))}
+          {fieldsConfig.map((section, index) => {
+            if (section.tripType && section.tripType !== tripType.toString())
+              return null;
+            return (
+              <FormSection
+                key={section.title}
+                title={section.title}
+                description={section.description}
+                fieldsConfig={section.fieldsConfig}
+                formProps={formProps}
+                last={index === fieldsConfig.length - 1}
+                isFormDisabled={isFormDisabled}
+              />
+            );
+          })}
           <StyledWave
             fill={
               isFormValid

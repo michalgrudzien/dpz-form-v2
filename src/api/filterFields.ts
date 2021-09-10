@@ -3,19 +3,22 @@ import { TRIP_TYPES } from "./types";
 type Values = { [name: string]: any };
 type ValuesKey = keyof Values;
 
-const FIELDS_PER_TRIP_TYPE: { [name: string]: string[] } = {
+export const FIELDS_PER_TRIP_TYPE: { [name: string]: string[] } = {
   [TRIP_TYPES.INLAND]: [
     "name",
     "surname",
     "email",
     "rodoApproval",
     "student",
+    "beer",
     "sailingLicence",
     "sailingExperience",
     "skills",
     "transportationOutbound",
     "transportationReturn",
     "whatCanYouTake",
+    "politics",
+    "diet",
     "comments",
   ],
   [TRIP_TYPES.SEA]: [
@@ -23,22 +26,22 @@ const FIELDS_PER_TRIP_TYPE: { [name: string]: string[] } = {
     "surname",
     "email",
     "student",
+    "beer",
     "dateBirth",
     "birthplace",
     "country",
     "city",
     "idCardNumber",
     "nationality",
-    "rodoApproval",
-    "hasBLicence",
-    "hasSRC",
-    "sailingLicence",
     "sailingExperience",
+    "sailingLicence",
+    "hasSRC",
     "skills",
     "whatCanYouTake",
-    "tshirtSize",
-    "gadgetChoice",
+    "politics",
+    "diet",
     "comments",
+    "rodoApproval",
   ],
 };
 

@@ -1,4 +1,4 @@
 export enum TRIP_TYPES {
-  INLAND,
-  SEA,
+  INLAND = "INLAND",
+  SEA = "SEA",
 }

@@ -238,6 +238,9 @@ const Field: FunctionComponent<FieldProps> = ({
               <MuiTextField
                 {...props}
                 type={type}
+                InputLabelProps={{
+                  shrink: type === "date" || undefined,
+                }}
                 helperText={error?.message}
                 error={!!error}
                 select={isSelect}

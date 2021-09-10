@@ -1,8 +1,10 @@
+import { TRIP_TYPES } from "api/types";
 import * as Yup from "yup";
+import { pickBy } from "lodash";
 
-//TODO: organize depending on trip type
+import { FIELDS_PER_TRIP_TYPE } from "api/filterFields";
 
-export default Yup.object().shape({
+const fullSchema = {
   name: Yup.string().required("Nie można nie mieć imienia."),
   surname: Yup.string().required("Chyba jakieś masz?"),
   email: Yup.string()
@@ -14,20 +16,20 @@ export default Yup.object().shape({
   ),
   student: Yup.mixed().notOneOf([null], "No masz czy nie?"),
   beer: Yup.bool().oneOf([true], "Innego i tak nie będzie."),
-  // dateBirth: Yup.date().required(
-  //   "Wiemy, o wiek się nie pyta, ale to naprawdę istotne!"
-  // ),
-  // birthplace: Yup.string().required(
-  //   "Jeśli znaleźli Cię w główce kapusty, to chociaż powiedz gdzie dokładnie!"
-  // ),
-  // country: Yup.string().required("No nie wstydź się, powiedz gdzie mieszkasz."),
-  // city: Yup.string().required(
-  //   "Jak się wstydzisz miejscowości, to daj chociaż najbliższą aglomerację!"
-  // ),
-  // idCardNumber: Yup.string().required(
-  //   "Jak tego nie podasz, to jak mamy wziąć na Ciebie kredyt w Providencie?"
-  // ),
-  // nationality: Yup.string().required("A Ty co? Apartyda?"),
+  dateBirth: Yup.date().typeError(
+    "Wiemy, o wiek się nie pyta, ale to naprawdę istotne!"
+  ),
+  birthplace: Yup.string().required(
+    "Jeśli znaleźli Cię w główce kapusty, to chociaż powiedz gdzie dokładnie!"
+  ),
+  country: Yup.string().required("No nie wstydź się, powiedz gdzie mieszkasz."),
+  city: Yup.string().required(
+    "Jak się wstydzisz miejscowości, to daj chociaż najbliższą aglomerację!"
+  ),
+  idCardNumber: Yup.string().required(
+    "Jak tego nie podasz, to jak mamy wziąć na Ciebie kredyt w Providencie?"
+  ),
+  nationality: Yup.string().required("A Ty co? Apartyda?"),
   isTravelling: Yup.mixed()
     .nullable()
     .notOneOf(
@@ -50,12 +52,12 @@ export default Yup.object().shape({
         "A Ty co? Pojawiasz się znikąd? Weź coś zaznacz."
       ),
     }),
-  // hasBLicence: Yup.mixed()
-  //   .nullable()
-  //   .notOneOf([null], "Można nie mieć, ale nie można tego nie powiedzieć!"),
-  // hasSRC: Yup.mixed()
-  //   .nullable()
-  //   .notOneOf([null], "Jak nie wiesz, co to jest, to kliknij, że nie."),
+  hasBLicence: Yup.mixed()
+    .nullable()
+    .notOneOf([null], "Można nie mieć, ale nie można tego nie powiedzieć!"),
+  hasSRC: Yup.mixed()
+    .nullable()
+    .notOneOf([null], "Jak nie wiesz, co to jest, to kliknij, że nie."),
   sailingLicence: Yup.mixed().oneOf(
     ["NONE", "ŻJ", "JSM", "KJ"],
     "Można nie mieć, ale to też zaznacz!"
@@ -64,10 +66,10 @@ export default Yup.object().shape({
     ["1", "2", "3", "4", "5"],
     "Twój przyszły sternik chce wiedzieć, czego nie może się po tobie spodziewać. No weź."
   ),
-  // tshirtSize: Yup.mixed().oneOf(
-  //   ["S", "M", "L", "XL", "XXL"],
-  //   "Nie wstydź się, podaj rozmiar, nie będziemy się śmiać."
-  // ),
+  tshirtSize: Yup.mixed().oneOf(
+    ["S", "M", "L", "XL", "XXL"],
+    "Nie wstydź się, podaj rozmiar, nie będziemy się śmiać."
+  ),
   skills: Yup.string(),
   whatCanYouTake: Yup.string(),
   politics: Yup.mixed().oneOf(
@@ -79,4 +81,11 @@ export default Yup.object().shape({
     "To twoja ostatnia szansa, żeby poinformować nas, że jesteś freeganem."
   ),
   comments: Yup.string(),
-});
+};
+
+export default (tripType: TRIP_TYPES) =>
+  Yup.object().shape(
+    pickBy(fullSchema, (value, key) =>
+      FIELDS_PER_TRIP_TYPE[tripType].includes(key)
+    )
+  );

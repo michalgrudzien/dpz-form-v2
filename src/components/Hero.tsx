@@ -53,11 +53,13 @@ const Hero: FunctionComponent = () => (
           <Grid item xs={12} md={3} sm={6}>
             <TripInfoWrapper>
               <Typography color="inherit" variant="h6">
-                Termin: 12.06.2021 - 19.06.2021
+                Termin: 13.11.2021 - 20.11.2021
                 <br />
-                Koszt: 950 PLN
+                Koszt: 1800 PLN
                 <br />
-                Start: Kraków/Ruciane Nida
+                Start: Ateny
+                <br />
+                Transport: własny
               </Typography>
             </TripInfoWrapper>
           </Grid>

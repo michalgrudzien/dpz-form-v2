@@ -94,8 +94,7 @@
         "type": "text",
         "name": "nationality",
         "label": "Obywatelstwo",
-        "placeholder": "",
-        "defaultValue": "polskie"
+        "placeholder": "np. 'polskie'"
       }
     ]
   },

@@ -237,7 +237,6 @@
         "type": "select",
         "name": "hasSRC",
         "label": "Masz SRC?",
-        "fullWidth": true,
         "initialValue": null,
         "options": [
           {

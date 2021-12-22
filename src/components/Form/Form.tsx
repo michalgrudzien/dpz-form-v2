@@ -86,7 +86,7 @@ const Form = () => {
   const isFormDisabled = submissionState.valueOf() === SubmissionState.FINISHED;
 
   const computedFieldsCount: number =
-    watch("isTravelling") !== false ? fieldsCount : fieldsCount - 2;
+  watch("isTravelling") ? fieldsCount : fieldsCount -2;
 
   const validFieldsCount: number = allFieldsNames.filter(
     (fieldName) =>
@@ -96,10 +96,10 @@ const Form = () => {
 
   return (
     <>
-      <FormProgress
+      {/* <FormProgress
         fieldsCount={computedFieldsCount}
         validFields={validFieldsCount}
-      />
+      /> */}
       <form onSubmit={submit}>
         <Card>
           {fieldsConfig.map((section, index) => {

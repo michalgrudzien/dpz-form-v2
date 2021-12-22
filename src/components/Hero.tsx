@@ -39,11 +39,11 @@ const Hero: FunctionComponent = () => (
           <Grid item xs={12} md={5}>
             <Box pb={3}>
               <Typography color="inherit" variant="body1">
-                Rok 2021 nie spełnił jak na razie wszystkich pokładanych w nim
-                oczekiwań, ale jesteśmy bliżej niż dalej. Pełni nadziei (znów),
-                pakujemy walizki i ruszamy do Aten! Czas w końcu odczarować
-                drugą edycję DPŻ We Shall Sea, czyli naszej słonowodnej eskapady
-                :) Szykujemy dla Was dwa wesołe jachty.
+              Wiemy, nie wszyscy jeszcze dobrze przetrawili rok 2021, a tu już myślimy o 2022, ale po zakończonych sukcesami wyjazdach i wspaniałym Balu Członka mamy tyle energii, że w coś ją musimy wpakować.<br/><br/>
+Pierwszym Cosiem będzie już trzeci wyjazd słonowodny w naszej historii, czyli DPŻ We Shall Sea 2022!<br/><br/>
+Brzmi dobrze? NO RACZEJ, ŻE BRZMI DOBRZE!:)<br/><br/>
+Jeśli wolne koje się skończyły, to ciągle warto dopisywać się do listy rezerwowej - przy odpowiednio dużym zainteresowaniu rozważymy wzięcie trzeciego jachtu.
+Więc brać urlopy i do dzieła!
                 <br />
                 <br />A teraz przejdźmy do konkretów, czyli formularza
                 zgłoszeniowego.
@@ -53,13 +53,15 @@ const Hero: FunctionComponent = () => (
           <Grid item xs={12} md={3} sm={6}>
             <TripInfoWrapper>
               <Typography color="inherit" variant="h6">
-                Termin: 13.11.2021 - 20.11.2021
+                Termin: 23.04.2022 - 30.04.2022
                 <br />
-                Koszt: 1800 PLN
+                Koszt: 1900 PLN
                 <br />
-                Start: Ateny
+                Start: Trogir, Chorwacja
                 <br />
-                Transport: własny
+                Transport: własny lub grupowy (rozliczany osobno)
+                <br/>
+                Jachty: Elan Impression 45
               </Typography>
             </TripInfoWrapper>
           </Grid>

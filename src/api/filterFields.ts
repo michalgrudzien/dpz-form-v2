@@ -33,6 +33,8 @@ export const FIELDS_PER_TRIP_TYPE: { [name: string]: string[] } = {
     "city",
     "idCardNumber",
     "nationality",
+    "transportationOutbound",
+    "transportationReturn",
     "sailingExperience",
     "sailingLicence",
     "hasSRC",

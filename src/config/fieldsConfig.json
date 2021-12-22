@@ -2,7 +2,7 @@
   {
     "tripType": null,
     "title": "Dane osobowe",
-    "description": "Zanim po raz pierwszy rzucimy cumy, potrzebujemy lepiej poznać nasze przyszłe załogi. I spokojnie, tych danych użyjemy tylko do organizacji We Shall Sea 2021, nie planujemy zakrojonej na szeroką skalę akcji a'la Cambridge Analytica.",
+    "description": "Zanim po raz pierwszy rzucimy cumy, potrzebujemy lepiej poznać nasze przyszłe załogi. I spokojnie, tych danych użyjemy tylko do organizacji We Shall Sea 2022, nie planujemy zakrojonej na szeroką skalę akcji a'la Cambridge Analytica.",
     "fieldsConfig": [
       {
         "type": "text",
@@ -48,7 +48,7 @@
         "defaultValue": false,
         "options": [
           {
-            "label": "Φιξ.",
+            "label": "Ožujsko.",
             "value": true
           }
         ]
@@ -169,6 +169,62 @@
     ]
   },
   {
+    "tripType": "SEA",
+    "title": "Transport",
+    "description": "W kwestii dojazdu pozostawiamy duże pole manewru. Jeśli wybierasz np. kajak, możliwe, że musisz się powoli zbierać. Tak czy inaczej prosimy o informację, czy wyrażasz chęć doczepienia się do dojazdu grupowego, najpewniej busa, którego postaramy się zorganizować i podstawić.",
+    "fieldsConfig": [
+      {
+        "type": "select",
+        "name": "isTravelling",
+        "label": "W jaki sposób chcesz dostać się na start rejsu?",
+        "fullWidth": true,
+        "defaultValue": null,
+        "options": [
+          {
+            "label": "Grupowo z DPŻ (busy).",
+            "value": true
+          },
+          {
+            "label": "Dojeżdżam we własnym zakresie.",
+            "value": false
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "name": "transportationOutbound",
+        "conditionalKey": "isTravelling",
+        "conditionalValue": true,
+        "initiallyValid": true,
+        "label": "Wyjazd z:",
+        "fullWidth": true,
+        "defaultValue": "Kraków",
+        "options": [
+          {
+            "label": "Krakowa",
+            "value": "Kraków"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "name": "transportationReturn",
+        "conditionalKey": "isTravelling",
+        "conditionalValue": true,
+        "initiallyValid": true,
+        "label": "Powrót do:",
+        "fullWidth": true,
+        "defaultValue": "Kraków",
+        "options": [
+          {
+            "label": "Krakowa",
+            "value": "Kraków"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "tripType": null,
     "title": "Doświadczenie żeglarskie",
     "description": "Lubimy dzielić załogi tak, żeby w każdej znalazł się ktoś, kto odróżnia foka od foki. W idealnym świecie jest to sternik, ale każdemu sternikowi miło, kiedy ma kogoś do pomocy. Więc nie krępuj się, tu możesz się pochwalić swoimi nieprzeciętnymi umiejętnościami!",
@@ -263,15 +319,15 @@
         "fullWidth": true,
         "options": [
           {
-            "label": "Usposobienie łagodne niczym lagun na instrybutorze.",
+            "label": "Usposobienie łagodne niczym młodzieżowe słowo roku.",
             "value": "1"
           },
           {
-            "label": "Po pół litrze chętnie bym z kimś podebatował, ale jeszcze nie aktywowali mi chipa ze szczepionki, więc nie mam dostępu do faktów.",
+            "label": "Po pół litrze zdarza mi się bronić Nord Stream 2.",
             "value": "2"
           },
           {
-            "label": "Jestem spokojny, ale jeszcze jedno słowo o tym, że Boseman powinien dostać Oscara, a mogę wybuchnąć.",
+            "label": "Jestem spokojny, ale jeszcze raz usłyszę o tym, że mamy najtańsze paliwo w Europie, to mogę wybuchnąć.",
             "value": "3"
           },
           {
@@ -279,9 +335,9 @@
             "value": "4"
           },
           {
-            "label": "Ten cały KOWID to spisek i chańba!1!",
+            "label": "Nie wierzę w lądowanie na Księżycu i co mi pan zrobisz?",
             "value": "5"
-          }
+          } 
         ]
       },
       {
@@ -338,7 +394,7 @@
       {
         "type": "checkbox",
         "name": "rodoApproval",
-        "label": "Administratorem Danych Osobowych zebranych w powyższym formularzu jest Stowarzyszenie Dobra Praktyka Żeglarska z siedzibą na ul. Dworskiej 23/21 w Krakowie (kontakt@depezet.com). Wyrażam zgodę na przetwarzanie moich danych osobowych przez Administratora Danych Osobowych w celu organizacji rejsu, w którym wezmę udział. Dane osobowe będą przetwarzane i przechowywane do dnia 31 grudnia 2021. Mam prawo dostępu do danych, sprostowania, usunięcia lub ograniczenia przetwarzania, sprzeciwu, wniesienia skargi do organu nadzorczego i do przeniesienia danych.",
+        "label": "Administratorem Danych Osobowych zebranych w powyższym formularzu jest Stowarzyszenie Dobra Praktyka Żeglarska z siedzibą na ul. Dworskiej 23/21 w Krakowie (kontakt@depezet.com). Wyrażam zgodę na przetwarzanie moich danych osobowych przez Administratora Danych Osobowych w celu organizacji rejsu, w którym wezmę udział. Dane osobowe będą przetwarzane i przechowywane do dnia 31 maja 2022. Mam prawo dostępu do danych, sprostowania, usunięcia lub ograniczenia przetwarzania, sprzeciwu, wniesienia skargi do organu nadzorczego i do przeniesienia danych.",
         "fullWidth": true,
         "defaultValue": false,
         "options": [

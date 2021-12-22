@@ -14,7 +14,7 @@ import { submitApplication } from "api";
 import getTripType from "helpers/getTripType";
 
 import FormSection from "./FormSection";
-import FormProgress from "./FormProgress";
+// import FormProgress from "./FormProgress";
 import SubmissionDialog from "./SubmissionDialog";
 import { FIELDS_PER_TRIP_TYPE } from "api/filterFields";
 
@@ -85,14 +85,14 @@ const Form = () => {
 
   const isFormDisabled = submissionState.valueOf() === SubmissionState.FINISHED;
 
-  const computedFieldsCount: number =
-  watch("isTravelling") ? fieldsCount : fieldsCount -2;
+  // const computedFieldsCount: number =
+  // watch("isTravelling") ? fieldsCount : fieldsCount -2;
 
-  const validFieldsCount: number = allFieldsNames.filter(
-    (fieldName) =>
-      (!errors.hasOwnProperty(fieldName) && touched[fieldName]) ||
-      ["skills", "whatCanYouTake", "comments"].includes(fieldName)
-  ).length;
+  // const validFieldsCount: number = allFieldsNames.filter(
+  //   (fieldName) =>
+  //     (!errors.hasOwnProperty(fieldName) && touched[fieldName]) ||
+  //     ["skills", "whatCanYouTake", "comments"].includes(fieldName)
+  // ).length;
 
   return (
     <>

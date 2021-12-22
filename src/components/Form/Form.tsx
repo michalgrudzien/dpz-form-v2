@@ -16,7 +16,7 @@ import getTripType from "helpers/getTripType";
 import FormSection from "./FormSection";
 // import FormProgress from "./FormProgress";
 import SubmissionDialog from "./SubmissionDialog";
-import { FIELDS_PER_TRIP_TYPE } from "api/filterFields";
+// import { FIELDS_PER_TRIP_TYPE } from "api/filterFields";
 
 export enum SubmissionState {
   INIT = "init",
@@ -40,8 +40,8 @@ const StyledBox = styled(Box)`
 
 const tripType = getTripType();
 
-const allFieldsNames: string[] = FIELDS_PER_TRIP_TYPE[tripType];
-const fieldsCount = allFieldsNames.length;
+// const allFieldsNames: string[] = FIELDS_PER_TRIP_TYPE[tripType];
+// const fieldsCount = allFieldsNames.length;
 
 const validationSchema = getValidationSchema(tripType);
 
